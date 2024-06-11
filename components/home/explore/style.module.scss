@@ -1,0 +1,42 @@
+.Explore {
+  background-color: antiquewhite;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  .Container {
+    text-align: center;
+    .row {
+      @media (max-width: 991px) {
+        justify-content: center;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 48px;
+        margin-bottom: 2rem;
+        @media (max-width: 991px) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+      .col {
+        img {
+          height: 60px;
+          width: 60px;
+          margin-bottom: 1.5rem;
+        }
+        h3 {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 30px;
+        }
+        p {
+          color: #2f2f2f;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}

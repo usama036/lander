@@ -1,0 +1,102 @@
+.modapkbanner {
+  background-image: linear-gradient(#174b26 100%, #0f2515 100%);
+  padding: 3rem 0;
+  .Container {
+    .row {
+      color: white !important;
+      .col {
+        h3 {
+          color: #6ee7b7;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 25px;
+          margin-bottom: 1.5rem;
+        }
+        h2 {
+          color: white;
+          //   font-weight: 700;
+          font-size: 40px;
+          line-height: 50px;
+          margin-bottom: 1.5rem;
+          //   width: 75%;
+        }
+        p {
+          color: white;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 24px;
+          margin-bottom: 0;
+          //   width: 70%;
+        }
+      }
+      .formWrap {
+        // width: 63%;
+        .button {
+          height: 46px;
+          width: 120px;
+          color: white;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 10px;
+          background-color: #047857;
+          border-radius: 52px;
+        }
+        :global {
+          .input-group {
+            width: 63% !important;
+            height: 46px !important;
+          }
+          .form-control {
+            height: 46px !important;
+            background-color: #f2f2f2;
+            width: 376px !important;
+            // padding-left: 46px !important;
+            color: #cbcbcb !important;
+            border-radius: 20px !important;
+            border: 1px solid #e5e7eb;
+            color: #cbcbcb !important;
+          }
+          .form-control:focus {
+            border-bottom: 1px solid #cbcbcb !important;
+            box-shadow: transparent !important;
+          }
+          input::-webkit-input-placeholder {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 19.5px;
+            @media (max-width: 991px) {
+              font-size: 14px;
+              line-height: 19.5px;
+            }
+          }
+
+          input:-moz-placeholder {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 19.5px;
+            @media (max-width: 991px) {
+              font-size: 14px;
+              line-height: 19.5px;
+            }
+          }
+          /* modern browser */
+          *::placeholder {
+            color: #6b7280;
+          }
+          .form-control:focus {
+            border-color: #cbcbcb !important;
+            border-bottom: 1px solid #cbcbcb !important;
+            box-shadow: transparent !important;
+          }
+        }
+        // }
+      }
+    }
+  }
+}
