@@ -1,0 +1,31 @@
+.topicsCard {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  border: 1px solid #e5e7eb;
+  .card {
+    --bs-card-border-width: 0px !important;
+    .cardBody {
+      .cardTitle {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        margin: 0.5rem 0 1rem;
+      }
+      .cardText {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 25px;
+      }
+      .cardButton {
+        margin-bottom: 1.5rem;
+      }
+      i {
+        color: #378b4f !important;
+        font-size: 18px !important;
+        margin-left: 15px;
+      }
+    }
+  }
+}

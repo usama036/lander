@@ -1,0 +1,148 @@
+// font size
+$enable-responsive-font-sizes: true !default;
+// Typography
+$theme-colors: (
+  "primary": #f2d498,
+  "secondary": #088dcd,
+  "gold": #f2d498,
+  "dark": #242424,
+  "warning": #ffc049,
+  "red": #e72c2c,
+  "red-2": #ff0100,
+  "light": #ffffff,
+  "green": #add242,
+  "gray-dark": #6d6d6d,
+  "gray2": rgb(218, 218, 218),
+  "light2": #ffffff9e,
+  "gray": #fda501,
+  "dark2": #171414,
+  "black": #000000,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1920px,
+);
+$container-max-widths: (
+  xs: 365px,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+  xxl: 1240px,
+  xxxl: 1780px,
+);
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: 6px,
+  10: 10px,
+  12: 12px,
+  15: 15px,
+  20: 20px,
+  25: 25px,
+  30: 30px,
+  40: 40px,
+  50: 50px,
+  60: 60px,
+  100: 100px,
+  150: 150px,
+  280: 280px,
+);
+$border-radius: 4px;
+$border-radius-pill: 50px;
+$input-padding-x: 12px;
+$input-padding-y: 8px;
+$input-color: #ffffff;
+$input-bg: transparent;
+$input-border-color: #ffffff;
+$input-focus-border-color: #ffc049;
+$input-focus-box-shadow: none;
+$input-font-size: 14px;
+$input-placeholder-color: rgba(255, 255, 255, 0.5);
+// $input-font-family: 'Poppins';
+$input-disabled-bg: #e9ecef73;
+$form-label-margin-bottom: 0.5rem !default;
+$form-label-font-size: 14px;
+$form-label-font-weight: 500;
+$form-label-color: #ffffff;
+$form-check-label-color: #ffffff;
+$form-check-input-checked-color: #ffc049;
+$form-check-input-checked-bg-color: transparent;
+$form-check-input-checked-border-color: #ffc049;
+$form-check-margin-bottom: 0;
+$form-check-input-border: 1px solid rgba(255, 255, 255, 0.801);
+$h1-font-size: 40px;
+$h2-font-size: 36px;
+$h3-font-size: 30px;
+$h4-font-size: 26px;
+$h5-font-size: 24px;
+$h6-font-size: 18px;
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  22: 22px,
+  24: 24px,
+  28: 28px,
+  30: 30px,
+  32: 32px,
+  40: 40px,
+  50: 50px,
+);
+
+$font-weight-normal: 400;
+$font-weight-semi-normal: 500;
+$font-weight-bold: 600;
+$font-weight-semibold: 700;
+$font-weight-bolder: 800;
+// Dropdown
+$dropdown-padding-y: 0px;
+$dropdown-box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
+  0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+$dropdown-border-radius: 8px;
+$dropdown-border-color: rgba(255, 255, 255, 0.9);
+$dropdown-border-width: 0px;
+$dropdown-font-size: 14px;
+$dropdown-item-padding-x: 0px;
+$dropdown-item-padding-y: 12px;
+$dropdown-link-color: #ffffff;
+$dropdown-link-hover-color: #ffa600;
+$dropdown-link-active-color: #ffa600;
+$dropdown-link-active-bg: transparent;
+$dropdown-link-hover-bg: transparent;
+$btn-font-size: 16px;
+$progress-height: 0.5rem;
+$progress-bg: #041024;
+$progress-border-radius: 4px;
+$progress-bar-color: #088dcd;
+$progress-bar-bg: #088dcd;
+$form-switch-color: #ffffff;
+$form-switch-width: 60px;
+$form-switch-padding-start: 3.75em + 0.5em !default;
+$form-switch-border-radius: 100px;
+$form-switch-focus-color: #ffffff;
+$form-switch-checked-color: #ffffff;
+
+@import "bootstrap/scss/bootstrap.scss";
