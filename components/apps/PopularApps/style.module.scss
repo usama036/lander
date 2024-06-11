@@ -1,4 +1,8 @@
 .PopularApps {
+  margin-top: 50px;
+  @media (max-width: 576px) {
+    margin-top: 30px;
+  }
   .Container {
     padding: 3rem;
     background-color: white;

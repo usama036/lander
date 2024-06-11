@@ -5,7 +5,7 @@ import SideCard from "../../../components/Topics/sideCard";
 const Topics = () => {
   return (
     <>
-      <Container>
+      <Container className="TopicsMain">
         <Row>
           <Col className={`col-md-9 `}>
             <TopicsAll />

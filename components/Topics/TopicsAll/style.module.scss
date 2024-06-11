@@ -4,6 +4,10 @@
   border-radius: 20px;
   margin-bottom: 3rem;
   border: 1px solid #e5e7eb;
+  // margin-top: 50px;
+  @media (max-width: 991px) {
+    margin-bottom: 2rem;
+  }
   .card {
     --bs-card-border-width: 0px !important;
     .cardBody {

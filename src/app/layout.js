@@ -1,10 +1,9 @@
-
 "use client"; // Add this directive at the top
 import { Inter } from "next/font/google";
 import Header from "../../components/header"; // Note: Ensure correct case for 'Header'
 import Footer from "../../components/footer";
 import "./globals.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../../public/styles/bootstrap-variables.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
