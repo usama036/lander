@@ -1,0 +1,90 @@
+.GamesTrending {
+  margin-top: 50px;
+  @media (max-width: 576px) {
+    margin-top: 30px;
+  }
+  .Container {
+    padding: 3rem;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 3rem;
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 31px;
+      margin-bottom: 0;
+      span {
+        color: #6ee7b7;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 30px;
+      margin-bottom: 0;
+    }
+    .slider {
+      .appCard {
+        .appImg {
+          border-radius: 10px;
+          margin-bottom: 10px;
+          width: 93px;
+          height: 93px;
+        }
+        p {
+          color: black;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 20px;
+          width: 70%;
+          height: 40px;
+          margin-bottom: 0.25rem !important;
+        }
+        span {
+          margin-left: 5px;
+          color: #fa8b16;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 10px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .navigation {
+      position: relative;
+      .button {
+        position: absolute;
+        top: -182px;
+        right: -100px;
+        @media (max-width: 1380px) {
+          right: -60px;
+        }
+        i {
+          color: black;
+          font-size: 35px;
+          @media (max-width: 1380px) {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    :global {
+      .apps-slider {
+        .slick-slider .slick-track,
+        .slick-slider .slick-list {
+          transform: translate3d(0px, 0px, 0px);
+          -webkit-transform: translate3d(0, 0, 0);
+          -moz-transform: translate3d(0, 0, 0);
+          -ms-transform: translate3d(0, 0, 0);
+          -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+
+    .popular-apps-container {
+      padding: 20px;
+    }
+  }
+}
