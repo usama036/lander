@@ -148,7 +148,18 @@ const truncateText = (text, maxLength) => {
   return text.substring(0, maxLength) + "...";
 };
 
+const appsImagePath = "/assets/apps-logo.svg";
+const gamesImagePath = "/assets/gameboy.svg";
+
 const Categories = () => {
+  const currentPath = window.location.pathname;
+  const timestamp = Date.now();
+
+  const imageSrc =
+    currentPath === "/apps"
+      ? `${appsImagePath}?t=${timestamp}`
+      : `${gamesImagePath}?t=${timestamp}`;
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
@@ -174,10 +185,16 @@ const Categories = () => {
             <Col md={12} lg={4} xl={4} className={styles.colLeft}>
               <div className={styles.Categories}>
                 <img
+                  src={imageSrc}
+                  alt="Categories"
+                  // alt="Apps or Games icon"
+                  style={{ width: "20px", height: "20px" }}
+                />
+                {/* <img
                   src="/assets/Categories.svg"
                   alt="Categories"
                   style={{ width: "20px", height: "20px" }}
-                />
+                /> */}
                 <h4>Categories</h4>
               </div>
               <div className={styles.categoriesData}>

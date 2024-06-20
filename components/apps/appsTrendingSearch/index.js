@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 const appData = [
   {
@@ -126,14 +127,16 @@ const AppsTrending = () => {
             <div className="position-relative">
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
                 {appData.map((app, index) => (
-                  <div key={index} className={styles.appCard}>
-                    <img
-                      src={app.imgSrc}
-                      alt={app.altText}
-                      className={styles.appImg}
-                    />
-                    <p>{truncateText(app.name, 20)}</p>
-                  </div>
+                  <Link href="/homedetails">
+                    <div key={index} className={styles.appCard}>
+                      <img
+                        src={app.imgSrc}
+                        alt={app.altText}
+                        className={styles.appImg}
+                      />
+                      <p>{truncateText(app.name, 20)}</p>
+                    </div>
+                  </Link>
                 ))}
               </Slider>
             </div>

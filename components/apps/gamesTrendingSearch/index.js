@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 const appData = [
   {
@@ -137,25 +138,27 @@ const GamesTrending = () => {
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
                 {appData.map((app, index) => (
                   <div key={index} className={styles.appCard}>
-                    <img
-                      src={app.imgSrc}
-                      alt={app.altText}
-                      className={styles.appImg}
-                    />
-                    <p>{truncateText(app.name, 20)}</p>
-                    <div className="d-flex align-items-center justify-content-start">
-                      {" "}
+                    <Link href="/homedetails">
                       <img
-                        src={app.orange}
-                        alt="orange"
-                        style={{
-                          width: "18px",
-                          height: "18px",
-                          marginRight: "2px",
-                        }}
+                        src={app.imgSrc}
+                        alt={app.altText}
+                        className={styles.appImg}
                       />
-                      <span>{app.rate}</span>
-                    </div>
+                      <p>{truncateText(app.name, 20)}</p>
+                      <div className="d-flex align-items-center justify-content-start">
+                        {" "}
+                        <img
+                          src={app.orange}
+                          alt="orange"
+                          style={{
+                            width: "18px",
+                            height: "18px",
+                            marginRight: "2px",
+                          }}
+                        />
+                        <span>{app.rate}</span>
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </Slider>

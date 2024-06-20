@@ -125,6 +125,26 @@ a {
   margin-top: 50px;
 }
 
+.Advertisement {
+  height: 280px;
+  width: 336px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0 auto 2rem;
+}
+
+.Advertisement-Two {
+  width: 90%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0 auto 3rem;
+}
+
 /* pagination  */
 .page-link.active,
 .active>.page-link {

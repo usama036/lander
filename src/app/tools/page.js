@@ -5,12 +5,12 @@ import SideCard from "../../../components/Topics/sideCard";
 const Tools = () => {
   return (
     <>
-      <Container>
+      <Container className="TopicsMain">
         <Row>
-          <Col className="col-md-9">
+          <Col className="col-md-8 col-lg-9">
             <PrivacyPolicy />
           </Col>
-          <Col className="col-md-3">
+          <Col className="col-md-4 col-lg-3">
             <SideCard />
             <SideCard />
           </Col>

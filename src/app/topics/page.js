@@ -7,10 +7,10 @@ const Topics = () => {
     <>
       <Container className="TopicsMain">
         <Row>
-          <Col className={`col-md-9 `}>
+          <Col className={`col-md-8 col-lg-9`}>
             <TopicsAll />
           </Col>
-          <Col className={`col-md-3`}>
+          <Col className={`col-md-4 col-lg-3`}>
             <SideCard />
             <SideCard />
           </Col>

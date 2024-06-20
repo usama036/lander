@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import styles from "./style.module.scss";
+import Link from "next/link";
 
 const SideCard = () => {
   const similarGames = [
@@ -46,7 +47,9 @@ const SideCard = () => {
         <div className="similar-games">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h3>Similar Games</h3>
-            <i className="fas fa-arrow-right"></i>
+            <Link href="/">
+              <i className="fas fa-arrow-right"></i>
+            </Link>
           </div>
           <ul>
             {similarGames.map((game, index) => (
