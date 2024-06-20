@@ -9,6 +9,8 @@ import PopularApps from "../../../components/apps/PopularApps";
 import Categories from "../../../components/apps/categories";
 import AppsTrendingSearch from "../../../components/apps/appsTrendingSearch";
 import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
+import { gql } from '@apollo/client';
+import client from '../../../apollo-client';
 
 const tabsData = [
   {
@@ -34,8 +36,11 @@ const tabsData = [
     // disabled: true,
   },
 ];
-const TopCharts = () => {
+
+const TopCharts =  ({pageData}) => {
   const [activeKey, setActiveKey] = useState("All");
+
+
 
   return (
     <>
@@ -64,8 +69,8 @@ const TopCharts = () => {
               >
                 {data.eventKey === "All" && <AppsTrendingSearch />}
                 {data.eventKey === "All" && <GamesTrendingSearch />}
-                {data.eventKey === "All" && <PopularApps />}
-                {data.eventKey === "All" && <PopularApps />}
+                {data.eventKey === "All" && <PopularApps pageData={pageData}/>}
+                {data.eventKey === "All" && <PopularApps pageData={pageData} />}
                 <div className={styles.tabs}>{data.component}</div>
               </Tab>
             ))}

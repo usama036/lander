@@ -7,41 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 
-const appData = [
-  {
-    name: "WhatsApp Messenger",
-    description: "Play this amazing battle royale on your PC",
-    imgSrc: "/assets/whatsapp-big.svg",
-    altText: "WhatsApp",
-    imgSmall: "/assets/whatsapp-samll.svg",
-    alt: "whatsapp",
-  },
-  {
-    name: "Instagram",
-    description: "Play COD Mobile from your PC",
-    imgSrc: "/assets/whatsapp-big.svg",
-    altText: "Instagram",
-    imgSmall: "/assets/whatsapp-samll.svg",
-    alt: "whatsapp",
-  },
-  {
-    name: "YouTube",
-    description: "Survive in this battle royale of super-powered heroes",
-    imgSrc: "/assets/whatsapp-big.svg",
-    altText: "YouTube",
-    imgSmall: "/assets/whatsapp-samll.svg",
-    alt: "whatsapp",
-  },
-  {
-    name: "CapCut - Video Editor",
-    description: "One of the best battle royales for PC",
-    imgSrc: "/assets/whatsapp-big.svg",
-    altText: "CapCut",
-    imgSmall: "/assets/whatsapp-samll.svg",
-    alt: "whatsapp",
-  },
-];
-const PopularApps = () => {
+
+const PopularApps = ({pageData}) => {
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -124,28 +91,31 @@ const PopularApps = () => {
               </div>
             </div>
             <div className="apps-slider">
+              {console.log(pageData)}
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
-                {appData.map((app, index) => (
-                  <Link href="/homedetails">
-                    <div key={index} className={styles.appCard}>
+                {pageData.cards.map((app, index) => (
+                  <Link key={index} href="/homedetails">
+
+                  <div  className={styles.appCard}>
+                    <img
+                      src={`http://localhost:1337${app.image1.data[0].attributes.url}`}
+                      alt={app.title}
+                      className={styles.appImg}
+                    />
+                    <div className="d-flex">
                       <img
-                        src={app.imgSrc}
-                        alt={app.altText}
-                        className={styles.appImg}
+                        src={`http://localhost:1337${app.image2.data[0].attributes.url}`}
+                        alt={app.name}
+                        className={styles.appSmallImg}
                       />
-                      <div className="d-flex">
-                        <img
-                          src={app.imgSmall}
-                          alt={app.alt}
-                          className={styles.appSmallImg}
-                        />
-                        <div className={styles.appInfo}>
-                          <h3>{app.name}</h3>
-                          <p>{app.description}</p>
-                        </div>
+                      <div className={styles.appInfo}>
+                        <h3>{app.title}</h3>
+                        <p>{app.subTitle}</p>
                       </div>
                     </div>
+                  </div>
                   </Link>
+
                 ))}
               </Slider>
             </div>

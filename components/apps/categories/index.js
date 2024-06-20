@@ -1,10 +1,10 @@
 "use client"; // Add this directive at the top
 import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Pagination } from 'react-bootstrap';
 
 // Sample data
-const apps = [
+const apps1 = [
   {
     id: 1,
     name: "WhatsApp Messenger",
@@ -98,48 +98,6 @@ const apps = [
 ];
 
 //
-const categories = [
-  {
-    title: "Art & Design",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "House & Home",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "News & Magazi…",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "Personalization",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "Art & Design",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "Art & Design",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "Art & Design",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-  {
-    title: "Art & Design",
-    img: "/assets/art-design.svg",
-    alt: "icon",
-  },
-];
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
@@ -151,14 +109,88 @@ const truncateText = (text, maxLength) => {
 const appsImagePath = "/assets/apps-logo.svg";
 const gamesImagePath = "/assets/gameboy.svg";
 
-const Categories = () => {
-  const currentPath = window.location.pathname;
-  const timestamp = Date.now();
+const Categories = ({ categories,type }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [apps, setApps] = useState([]);
+  const cardsPerPage = 10;
 
-  const imageSrc =
-    currentPath === "/apps"
-      ? `${appsImagePath}?t=${timestamp}`
-      : `${gamesImagePath}?t=${timestamp}`;
+  useEffect(() => {
+    fetchApps(currentPage, cardsPerPage,type);
+  }, [currentPage]);
+
+  const fetchApps = async (page, pageSize,type) => {
+    try {
+      let url
+      if (type === "Games") {
+        url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Games`
+      }else {
+        url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Apps`
+      }
+      const response = await fetch(url);
+      const data = await response.json();
+      setApps(data.data);
+      setTotalPages(data.meta.pagination.pageCount);
+    } catch (error) {
+      console.error('Error fetching apps:', error);
+    }
+  };
+
+  const handleClick = (number) => {
+    setCurrentPage(number);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const renderPagination = () => {
+    let paginationItems = [];
+    let startPage = currentPage > 3 ? currentPage - 2 : 1;
+    let endPage = currentPage + 2 <= totalPages ? currentPage + 2 : totalPages;
+
+    if (startPage > 1) {
+      paginationItems.push(<Pagination.Ellipsis key="startEllipsis" />);
+    }
+
+    for (let number = startPage; number <= endPage; number++) {
+      paginationItems.push(
+        <Pagination.Item
+          key={number}
+          active={number === currentPage}
+          onClick={() => handleClick(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+
+    if (endPage < totalPages) {
+      paginationItems.push(<Pagination.Ellipsis key="endEllipsis" />);
+    }
+
+    return (
+      <Pagination>
+        <Pagination.Prev
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        />
+        {paginationItems}
+        <Pagination.Next
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+        />
+      </Pagination>
+    );
+  };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -176,7 +208,6 @@ const Categories = () => {
 
   const heading =
     location.pathname === "/apps" ? "Newest Games" : "Newest Apps";
-
   return (
     <>
       <section className={styles.Categories}>
@@ -185,16 +216,10 @@ const Categories = () => {
             <Col md={12} lg={4} xl={4} className={styles.colLeft}>
               <div className={styles.Categories}>
                 <img
-                  src={imageSrc}
-                  alt="Categories"
-                  // alt="Apps or Games icon"
-                  style={{ width: "20px", height: "20px" }}
-                />
-                {/* <img
                   src="/assets/Categories.svg"
                   alt="Categories"
                   style={{ width: "20px", height: "20px" }}
-                /> */}
+                />
                 <h4>Categories</h4>
               </div>
               <div className={styles.categoriesData}>
@@ -203,13 +228,13 @@ const Categories = () => {
                     <Col key={index} md={6} className={`${styles.categories}`}>
                       <div className={styles.categoriesWrap}>
                         <img
-                          src={items.img}
-                          alt={items.alt}
+                          src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}
+                          alt={items.attributes.name}
                           style={{ width: "30px", height: "30px" }}
                         />
                         <h4>
                           {isDesktopScreen
-                            ? truncateText(items.title, 10)
+                            ? truncateText(items.attributes.name, 10)
                             : items.title}
                         </h4>
                       </div>
@@ -228,19 +253,19 @@ const Categories = () => {
                     <div className={styles.appsData}>
                       <div className={styles.data}>
                         <img
-                          src={app.icon}
+                          src={app.attributes.Applogo}
                           alt="rating"
                           style={{ width: "120px", height: "120px" }}
                         />
                         <div className={styles.textWrap}>
                           <h5>
                             {isMobScreen
-                              ? truncateText(app.name, 10)
-                              : app.name}
+                              ? truncateText(app.attributes.title, 10)
+                              : app.attributes.title}
                           </h5>
                           <div>
                             <img
-                              src={app.orange}
+                              src={apps1[0].orange}
                               alt="orange"
                               style={{
                                 width: "18px",
@@ -249,7 +274,7 @@ const Categories = () => {
                               }}
                             />
                             <img
-                              src={app.orange}
+                              src={apps1[e].orange}
                               alt="orange"
                               style={{
                                 width: "18px",
@@ -258,7 +283,7 @@ const Categories = () => {
                               }}
                             />
                             <img
-                              src={app.orange}
+                              src={apps1[0].orange}
                               alt="orange"
                               style={{
                                 width: "18px",
@@ -267,7 +292,7 @@ const Categories = () => {
                               }}
                             />
                             <img
-                              src={app.gray}
+                              src={apps1[0].gray}
                               alt="gray"
                               style={{
                                 width: "18px",
@@ -275,9 +300,9 @@ const Categories = () => {
                                 marginRight: "2px",
                               }}
                             />
-                            <span>{app.rating}</span>
+                            <span>{app.attributes.rating}</span>
                           </div>
-                          <p>{app.size}</p>
+                          <p>{app.attributes.size}</p>
                         </div>
                       </div>
                       <div className={styles.buttonWrap}>
@@ -297,10 +322,13 @@ const Categories = () => {
                     </div>
                   </div>
                 ))}
+
               </div>
+              {renderPagination()}
             </Col>
           </Row>
         </Container>
+
       </section>
     </>
   );
