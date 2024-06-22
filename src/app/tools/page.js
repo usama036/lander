@@ -7,10 +7,10 @@ const Tools = () => {
     <>
       <Container className="TopicsMain">
         <Row>
-          <Col className="col-md-8 col-lg-9">
+          <Col className={`col-sm-12 col-md-8 col-xxxl-8`}>
             <PrivacyPolicy />
           </Col>
-          <Col className="col-md-4 col-lg-3">
+          <Col className={`col-sm-12 col-md-4 col-xxxl-4`}>
             <SideCard />
             <SideCard />
           </Col>

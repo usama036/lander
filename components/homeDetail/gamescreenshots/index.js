@@ -126,7 +126,7 @@ const GameScreenshots = () => {
                   className={`rightSliderButton ${styles.button}`}
                   onClick={() => sliderRef.current.slickNext()}
                 >
-                  <i className="fa-solid fa-chevron-right"></i>
+                  <i class="fa-solid fa-chevron-right"></i>
                 </Button>
               </div>
             </Row>
