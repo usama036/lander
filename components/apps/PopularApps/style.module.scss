@@ -70,6 +70,9 @@
           }
         }
       }
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
     :global {
       .apps-slider {
@@ -83,49 +86,6 @@
           transform: translate3d(0, 0, 0);
         }
       }
-    }
-
-    .popular-apps-container {
-      padding: 20px;
-    }
-
-    .apps-slider {
-      position: relative;
-    }
-
-    .app-card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 0 5px;
-    }
-
-    .app-image {
-      width: 100%;
-      height: auto;
-    }
-
-    .app-info {
-      padding: 10px;
-      text-align: center;
-    }
-
-    .navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-
-    .nav-button {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 5px 10px;
-    }
-
-    .nav-button:hover {
-      background-color: #f0f0f0;
     }
   }
 }
