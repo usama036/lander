@@ -2,57 +2,41 @@ import { Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
 
-const SideCard = () => {
-  const similarGames = [
-    {
-      title: "Mobile Legends: Bang Bar",
-      developer: "Moonton",
-      rating: 4.1,
-      imageUrl: "/assets/icon-1.svg",
-    },
-    {
-      title: "NEW STATE : NEW ERA OF BF",
-      developer: "KRAFTON, Inc.",
-      rating: 3.8,
-      imageUrl: "/assets/icon-2.svg",
-    },
-    {
-      title: "Blood Strike - FPS for a",
-      developer: "NetEase Games",
-      rating: 4.6,
-      imageUrl: "/assets/icon-3.svg",
-    },
-    {
-      title: "Clash of Clans",
-      developer: "Supercell",
-      rating: 4.5,
-      imageUrl: "/assets/icon-4.svg",
-    },
-    {
-      title: "Dream League Soccer 2024",
-      developer: "First Touch Games Ltd.",
-      rating: 4.3,
-      imageUrl: "/assets/icon-5.svg",
-    },
-    {
-      title: "Battle Prime: FPS gun shootin",
-      developer: "Press Fire Games Limited",
-      rating: 4.3,
-      imageUrl: "/assets/icon-1.svg",
-    },
-  ];
+const SideCard = ({post}) => {
+
+  const similarGames = []
+  post?.attributes?.similar_Apps?.data?.map((app) =>
+    similarGames.push({
+
+    title:app?.attributes?.title,
+      developer: app?.attributes?.publisher,
+    rating:app?.attributes?.rating ,
+    imageUrl: app.attributes?.Applogo,
+      slug: app.attributes?.slug,
+
+})
+  )
+
   return (
     <>
       <section className={styles.SideCard}>
         <div className="similar-games">
           <div className="d-flex align-items-center justify-content-between mb-3">
-            <h3>Similar Games</h3>
+            <h3>Similar {post?.attributes?.category?.data?.attributes?.PageCategory} </h3>
             <Link href="/">
               <i className="fas fa-arrow-right"></i>
             </Link>
           </div>
           <ul>
             {similarGames.map((game, index) => (
+              <Link
+                href={{
+                  pathname: '/homedetails',
+                  query: {
+                    name:game.slug
+                  }
+                }}
+              >
               <li key={index} className="d-flex mb-3">
                 <img
                   src={game.imageUrl}
@@ -68,6 +52,7 @@ const SideCard = () => {
                   </p>
                 </div>
               </li>
+              </Link>
             ))}
           </ul>
           <div className="d-flex align-items-center justify-content-center mb-3">

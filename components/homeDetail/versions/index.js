@@ -2,7 +2,7 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
 
-const Versions = () => {
+const Versions = ({post}) => {
   const explopreData = [
     {
       title: "Versions of PUBG MOBILE",
@@ -31,7 +31,7 @@ const Versions = () => {
                   key={imgIndex}
                 >
                   <div className={styles.buttonWrap}>
-                    <Link href="/">
+                    <Link href={post?.attributes?.downloadLink || ''}>
                       <Button
                         as="button"
                         type="button"

@@ -124,8 +124,10 @@ const Categories = ({ categories,type }) => {
       let url
       if (type === "Games") {
         url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Games`
-      }else {
+      }else if(type === "Apps"){
         url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Apps`
+      }else{
+        url = ` http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][slug][$eq]=${type}`
       }
       const response = await fetch(url);
       const data = await response.json();
@@ -208,6 +210,11 @@ const Categories = ({ categories,type }) => {
 
   const heading =
     location.pathname === "/apps" ? "Newest Games" : "Newest Apps";
+  const handleCategoryClick= (slug) =>{
+   fetchApps(currentPage, cardsPerPage,slug)
+  }
+
+
   return (
     <>
       <section className={styles.Categories}>
@@ -225,7 +232,7 @@ const Categories = ({ categories,type }) => {
               <div className={styles.categoriesData}>
                 <Row className={styles.categoriesRow}>
                   {categories.map((items, index) => (
-                    <Col key={index} md={6} className={`${styles.categories}`}>
+                    <Col key={index} md={6} className={`${styles.categories}`} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
                       <div className={styles.categoriesWrap}>
                         <img
                           src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}

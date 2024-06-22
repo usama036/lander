@@ -7,37 +7,37 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 
-const appData = [
-  {
-    title: "PUBG MOBILE Screenshots",
-    data: [
-      {
-        img: "/assets/whatsapp-big.svg",
-        alt: "whatsapp",
-      },
-      {
-        img: "/assets/whatsapp-big.svg",
-        alt: "whatsapp",
-      },
-      {
-        img: "/assets/whatsapp-big.svg",
-        alt: "whatsapp",
-      },
-      {
-        img: "/assets/whatsapp-big.svg",
-        alt: "whatsapp",
-      },
-      {
-        img: "/assets/whatsapp-big.svg",
-        alt: "whatsapp",
-      },
-    ],
-  },
-];
 
-const GameScreenshots = () => {
+
+const GameScreenshots = ({post}) => {
   const sliderRef = React.useRef(null);
-
+  const appData = [
+    {
+      title: `${post?.attributes?.title}'s Screenshots`,
+      data: [
+        {
+          img:post?.attributes?.Image01 ,
+          alt: post?.attributes?.title,
+        },
+        {
+          img: post?.attributes?.Image02 ,
+          alt: post?.attributes?.title,
+        },
+        {
+          img: post?.attributes?.Image03,
+          alt: post?.attributes?.title,
+        },
+        {
+          img: post?.attributes?.Image04,
+          alt: post?.attributes?.title,
+        },
+        {
+          img: post?.attributes?.Image05,
+          alt: post?.attributes?.title,
+        },
+      ],
+    },
+  ];
   const settings = {
     infinite: false,
     slidesToShow: 4.5,

@@ -17,7 +17,7 @@ const HomeDetails = ({searchParams}) => {
 
       let cleanedString = urlString.replace(/^\?name=/, '');
 
-      try {const url = `http://localhost:1337/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
+      try {const url = `http://localhost:1337/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category&populate=similar_Apps`
         const response = await fetch(url);
         const { data } = await response.json();
           setPost(data[0]); // Assuming you want the first post if there are multiple
@@ -35,16 +35,17 @@ const HomeDetails = ({searchParams}) => {
       <Container className="TopicsMain">
         <Row>
           <Col className="col-md-8 col-lg-9">
-            <GameDetails post={post} />
+
+            {post && <GameDetails post={post} />}
             <div className="Advertisement-Two">Advertisement two</div>
-            <AboutGame post={post} />
-            <Versions />
-            <GameScreenshots post={post} />
+            {post && <AboutGame post={post} />}
+            {post && <Versions  post={post}/>}
+          {post && <GameScreenshots post={post} />}
           </Col>
           <Col className="col-md-4 col-lg-3">
             <div className="Advertisement">Advertisement</div>
             <SideCard />
-            <SideCard />
+            <SideCard post={post} />
           </Col>
         </Row>
       </Container>

@@ -53,15 +53,6 @@ const AboutGame = ({post}) => {
     },
   ];
 
-  const TextContainer = [
-    {
-      title: "About PUBG MOBILE",
-      dec: "Dive into the ultimate Battle Royale and win chicken dinner in PUBG MOBILE!",
-      dec1: "PUBG MOBILE is an epic battle royale mobile game and one of the best mobile shooting games available. At its core, it offers thrilling survival gameplay with intense battles lasting up to 10 minutes, where players are equipped with firearms and must respond to the call for battle.",
-      dec2: "PUBG MOBILE boasts a variety of maps and gameplay mechanics that give players a thrilling survival experience, with new modes being added for players to explore. From classic mode, payload, fast-paced 4v4 arena battles, to infection mode, the game offers an array of gameplay options in which players can choose to participate in their preferred game mode",
-    },
-  ];
-
   return (
     <>
       <section className={styles.AboutGame}>
