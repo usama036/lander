@@ -38,13 +38,15 @@ const modapkbanner = () => {
                         aria-label="Search"
                       />
                     </InputGroup>
-                    <Button
-                      variant="none"
-                      type="sumbit"
-                      className={`${styles.button}`}
-                    >
-                      Find App
-                    </Button>
+                    <Link href="/search">
+                      <Button
+                        variant="none"
+                        type="sumbit"
+                        className={`${styles.button}`}
+                      >
+                        Find App
+                      </Button>
+                    </Link>
                   </Form>
                 </div>
               </Col>
