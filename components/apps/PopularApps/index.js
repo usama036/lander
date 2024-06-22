@@ -91,7 +91,6 @@ const PopularApps = ({pageData}) => {
               </div>
             </div>
             <div className="apps-slider">
-              {console.log(pageData)}
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
                 {pageData.cards.map((app, index) => (
                   <Link key={index} href="/homedetails">
@@ -126,7 +125,7 @@ const PopularApps = ({pageData}) => {
                 className={`rightSliderButton ${styles.button}`}
                 onClick={() => sliderRef.current.slickNext()}
               >
-                <i class="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right"></i>
               </Button>
             </div>
           </div>

@@ -12,36 +12,35 @@ import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
 import { gql } from '@apollo/client';
 import client from '../../../apollo-client';
 
-const tabsData = [
-  {
-    id: 1,
-    title: "All",
-    eventKey: "All",
-  },
-  {
-    id: 2,
-    img: "/assets/gameboy.svg",
-    alt: "gameboy",
-    title: "Games",
-    eventKey: "Games",
-    component: <GamesTrendingSearch />,
-  },
-  {
-    id: 3,
-    img: "/assets/apps-logo.svg",
-    alt: "apps-logo",
-    title: "Apps",
-    eventKey: "Apps",
-    component: <AppsTrendingSearch />,
-    // disabled: true,
-  },
-];
 
-const TopCharts =  ({pageData}) => {
+
+const TopCharts =  ({pageData,apps,games}) => {
   const [activeKey, setActiveKey] = useState("All");
 
-
-
+  const tabsData = [
+    {
+      id: 1,
+      title: "All",
+      eventKey: "All",
+    },
+    {
+      id: 2,
+      img: "/assets/gameboy.svg",
+      alt: "gameboy",
+      title: "Games",
+      eventKey: "Games",
+      component: <GamesTrendingSearch games={games}/>,
+    },
+    {
+      id: 3,
+      img: "/assets/apps-logo.svg",
+      alt: "apps-logo",
+      title: "Apps",
+      eventKey: "Apps",
+      component: <AppsTrendingSearch  apps={apps} />,
+      // disabled: true,
+    },
+  ];
   return (
     <>
       <section className={styles.TopCharts}>
@@ -67,8 +66,8 @@ const TopCharts =  ({pageData}) => {
                   </div>
                 }
               >
-                {data.eventKey === "All" && <AppsTrendingSearch />}
-                {data.eventKey === "All" && <GamesTrendingSearch />}
+                {data.eventKey === "All" && <AppsTrendingSearch apps={apps}/>}
+                {data.eventKey === "All" && <GamesTrendingSearch games={games}/>}
                 {data.eventKey === "All" && <PopularApps pageData={pageData}/>}
                 {data.eventKey === "All" && <PopularApps pageData={pageData} />}
                 <div className={styles.tabs}>{data.component}</div>

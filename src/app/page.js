@@ -46,13 +46,69 @@ const GET_PAGE_DATA = gql`
         }
     }
 `
+const Get_Apps = gql`
+    query {
+        blogPosts(
+            pagination: { limit:50 }
+            filters: { category: { PageCategory: { eq: "Apps" } } }
+        ) {
+            data {
+                id
+                attributes {
+                    title
+Applogo
+                    slug
+                    rating
+                    category {
+                        data {
+                            id
+                            attributes {
+                                PageCategory
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+`
+const Get_Games = gql`
+    query {
+        blogPosts(
+            pagination: { limit:50 }
+            filters: { category: { PageCategory: { eq: "Games" } } }
+        ) {
+            data {
+                id
+                attributes {
+                    title
+                    rating
+                    slug
+                    Applogo
+                    category {
+                        data {
+                            id
+                            attributes {
+                                PageCategory
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+`
 const Apps = async () => {
   const  pageData  = await client.query({ query: GET_PAGE_DATA });
+  const  getApps  = await client.query({ query: Get_Apps });
+  const  getGames  = await client.query({ query: Get_Games });
   return (
     <>
       <ModeApkBanner />
-      <Explore />
-      <TopCharts pageData={pageData.data.pages.data[0].attributes.sections[0]} />
+        <Explore />
+      <TopCharts pageData={pageData.data.pages.data[0].attributes.sections[0]} apps={getApps.data.blogPosts.data} games={getGames.data.blogPosts.data}/>
     </>
   );
 };

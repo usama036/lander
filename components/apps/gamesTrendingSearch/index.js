@@ -1,5 +1,5 @@
 "use client"; // Add this directive at the top
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Slider from "react-slick";
@@ -51,7 +51,8 @@ const truncateText = (text, maxLength) => {
   }
   return text.substring(0, maxLength) + "...";
 };
-const GamesTrending = () => {
+const GamesTrending = ({games}) => {
+
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -122,6 +123,7 @@ const GamesTrending = () => {
           <div className="popular-apps-container">
             <div className="d-flex align-items-center justify-content-between">
               <div>
+
                 <h2>
                   Games . <span> Trending Searches</span>
                 </h2>
@@ -136,19 +138,26 @@ const GamesTrending = () => {
             </div>
             <div className="position-relative">
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
-                {appData.map((app, index) => (
+                {games.map((app, index) => (
                   <div key={index} className={styles.appCard}>
-                    <Link href="/homedetails">
+                    <Link
+                      href={{
+                        pathname: '/homedetails',
+                        query: {
+                          name: app.attributes.slug
+                        }
+                      }}
+                    >
                       <img
-                        src={app.imgSrc}
-                        alt={app.altText}
+                        src={app.attributes.Applogo}
+                        alt={app.attributes.title}
                         className={styles.appImg}
                       />
-                      <p>{truncateText(app.name, 20)}</p>
+                      <p>{truncateText(app.attributes.title, 20)}</p>
                       <div className="d-flex align-items-center justify-content-start">
                         {" "}
                         <img
-                          src={app.orange}
+                          src={appData[0].orange}
                           alt="orange"
                           style={{
                             width: "18px",
@@ -156,7 +165,7 @@ const GamesTrending = () => {
                             marginRight: "2px",
                           }}
                         />
-                        <span>{app.rate}</span>
+                        <span>{app.attributes.rating}</span>
                       </div>
                     </Link>
                   </div>

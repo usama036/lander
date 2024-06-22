@@ -6,12 +6,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import { gql } from '@apollo/client';
+import client from '../../../apollo-client';
 
 const appData = [
   {
     name: "WhatsApp Messenger",
     imgSrc: "/assets/insta-app.svg",
     alt: "whatsapp",
+    orange: "/assets/orange-star.svg",
   },
   {
     name: "Auto Clicker - Automatic tap",
@@ -35,6 +38,7 @@ const appData = [
   },
 ];
 
+
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
     return text;
@@ -42,7 +46,9 @@ const truncateText = (text, maxLength) => {
   return text.substring(0, maxLength) + "...";
 };
 
-const AppsTrending = () => {
+const AppsTrending = ({apps}) => {
+
+
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -126,18 +132,38 @@ const AppsTrending = () => {
             </div>
             <div className="position-relative">
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
-                {appData.map((app, index) => (
-                  <Link href="/homedetails">
+                {apps.map((app, index) => (
+                  <Link
+                    href={{
+                      pathname: '/homedetails',
+                      query: {
+                        name: app.attributes.slug
+                      }
+                    }}
+                  >
                     <div key={index} className={styles.appCard}>
                       <img
-                        src={app.imgSrc}
-                        alt={app.altText}
+                        src={app.attributes.Applogo}
+                        alt={app.attributes.title}
                         className={styles.appImg}
                       />
-                      <p>{truncateText(app.name, 20)}</p>
-                    </div>
+                      <p>{truncateText(app.attributes.title, 20)}</p>
+                      <div className="d-flex align-items-center justify-content-start">
+                        {' '}
+                        <img
+                          src={appData[0].orange}
+                          alt="orange"
+                          style={{
+                            width: '18px',
+                            height: '18px',
+                            marginRight: '2px',
+                          }}
+                        />
+                        <span>{app.attributes.rating}</span>
+                      </div>
+                      </div>
                   </Link>
-                ))}
+                  ))}
               </Slider>
             </div>
             <div className={styles.navigation}>
