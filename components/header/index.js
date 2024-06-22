@@ -1,6 +1,5 @@
 // "use client"; // Add this directive at the top
-import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Navbar,
   Nav,
@@ -19,19 +18,71 @@ const header = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const searchRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <Navbar variant="light" expand="lg" className={`${styles.header}`}>
-        {/* className={`${styles.container}`} */}
         <Container>
-          <Link href="/" className="me-40">
+          <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
+          <Link href="/">
             <img
               src="/assets/logo.svg"
               className={`d-inline-block align-top ${styles.headerLogo}`}
               alt="Logo"
             />
           </Link>
-          <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
+          <div className={`${styles.Mobsearch}`}>
+            <div className="search-container" ref={searchRef}>
+              <Button
+                type="button"
+                variant="none"
+                value="button"
+                // className="search-icon"
+                onClick={toggleDropdown}
+              >
+                <img
+                  src="/assets/search.svg"
+                  // className={`${styles.search}`}
+                  alt="search"
+                />
+              </Button>
+              {isOpen && (
+                <div className={`search-input-dropdown ${styles.MobformWrap}`}>
+                  <Form className="d-flex Mobform">
+                    <InputGroup className={styles.mobInput}>
+                      <Form.Control
+                        type="search"
+                        placeholder="Search for apps, games"
+                        aria-label="Search"
+                      />
+                      <img
+                        src="/assets/search.svg"
+                        className={`${styles.searchMob}`}
+                        alt="search"
+                      />
+                    </InputGroup>
+                  </Form>
+                </div>
+              )}
+            </div>
+          </div>
           <Navbar.Collapse
             id="navbarScroll"
             className="d-none d-lg-flex justify-content-between align-items-center"
@@ -107,21 +158,21 @@ const header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
+      {/* mobile header  */}
       <Offcanvas
         show={show}
         onHide={handleClose}
         responsive="lg"
-        placement="end"
+        placement="start"
         className={`d-lg-none d-sm-block ${styles.Offcanvas}`}
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <Navbar.Brand href="/home">
               <img
-                src="/src/assets/header-logo.svg"
-                width="60"
-                height="37"
+                src="/assets/logo.svg"
+                width="120"
+                // height="37"
                 className="d-inline-block align-top"
                 alt="Logo"
               />
@@ -129,8 +180,8 @@ const header = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav className="d-block flex-grow-1 pe-3">
-            <Link className={`${styles.link}`} href="/apps">
+          <Nav className="d-grid flex-grow-1">
+            <Link className={`mb-4 ${styles.link}`} href="/apps">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <img
@@ -141,7 +192,7 @@ const header = () => {
               </span>
               Apps
             </Link>
-            <Link className={`${styles.link}`} href="/games">
+            <Link className={`mb-4 ${styles.link}`} href="/games">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <img
@@ -152,7 +203,7 @@ const header = () => {
               </span>
               Games
             </Link>
-            <Link className={`${styles.link}`} href="/topics">
+            <Link className={`mb-4 ${styles.link}`} href="/topics">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <img

@@ -22,20 +22,22 @@ $theme-colors: (
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px,
-  xxxl: 1920px,
+  2sm: 768px,
+  md: 992px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+  xxxl: 1680px,
 );
 $container-max-widths: (
   xs: 365px,
   sm: 540px,
-  md: 720px,
+  2sm: 720px,
+  md: 880px,
   lg: 960px,
   xl: 1200px,
-  xxl: 1400px,
-  xxxl: 1780px,
+  xxl: 1240px,
+  xxxl: 1440px,
 );
 $spacer: 1rem;
 $spacers: (

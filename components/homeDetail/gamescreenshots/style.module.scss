@@ -45,6 +45,9 @@
           }
         }
       }
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
     :global {
       .apps-slider {

@@ -147,7 +147,7 @@ const AppsTrending = () => {
                 className={`rightSliderButton ${styles.button}`}
                 onClick={() => sliderRef.current.slickNext()}
               >
-                <i class="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right"></i>
               </Button>
             </div>
           </div>

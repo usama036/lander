@@ -187,14 +187,8 @@ const Categories = () => {
                 <img
                   src={imageSrc}
                   alt="Categories"
-                  // alt="Apps or Games icon"
                   style={{ width: "20px", height: "20px" }}
                 />
-                {/* <img
-                  src="/assets/Categories.svg"
-                  alt="Categories"
-                  style={{ width: "20px", height: "20px" }}
-                /> */}
                 <h4>Categories</h4>
               </div>
               <div className={styles.categoriesData}>
@@ -298,6 +292,7 @@ const Categories = () => {
                   </div>
                 ))}
               </div>
+              pagination
             </Col>
           </Row>
         </Container>
