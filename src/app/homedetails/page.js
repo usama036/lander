@@ -8,7 +8,6 @@ import SideCard from "../../../components/Topics/sideCard";
 import { useEffect, useState } from 'react';
 
 const HomeDetails = ({searchParams}) => {
-  console.log('searchParams',searchParams);
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
@@ -18,14 +17,11 @@ const HomeDetails = ({searchParams}) => {
 
       let cleanedString = urlString.replace(/^\?name=/, '');
 
-      try {const url = `http://localhost:1337/api/blog-posts?filters[slug][$eq]=${cleanedString}`
+      try {const url = `http://localhost:1337/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
         const response = await fetch(url);
-        const data = await response.json();
-        if (response.status === 200) {
+        const { data } = await response.json();
           setPost(data[0]); // Assuming you want the first post if there are multiple
-        } else {
-          setError(data);
-        }
+
       } catch (err) {
         setError({ error: 'Failed to fetch data' });
       }
@@ -35,15 +31,15 @@ const HomeDetails = ({searchParams}) => {
   }, []);
   return (
     <>
-      <Container className="TopicsMain">
 
+      <Container className="TopicsMain">
         <Row>
           <Col className="col-md-8 col-lg-9">
-            <GameDetails />
+            <GameDetails post={post} />
             <div className="Advertisement-Two">Advertisement two</div>
-            <AboutGame />
+            <AboutGame post={post} />
             <Versions />
-            <GameScreenshots />
+            <GameScreenshots post={post} />
           </Col>
           <Col className="col-md-4 col-lg-3">
             <div className="Advertisement">Advertisement</div>

@@ -2,7 +2,7 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 import Link from "next/link";
 import styles from "./style.module.scss";
 
-const GameScreenshots = () => {
+const GameScreenshots = ({post}) => {
   const GameScreenshotsData = [
     {
       title: "PUBG MOBILE",
@@ -20,31 +20,32 @@ const GameScreenshots = () => {
     <>
       <section className={styles.GameScreenshots}>
         <Container className={styles.Container}>
-          {GameScreenshotsData.map((item, index) => (
-            <Row key={index}>
+
+            <Row>
               <Col xs={12} sm={12} md={12} lg={12} className={styles.col}>
                 <div className={styles.colWrap}>
-                  <img src={item.img} className={styles.img} alt="pubg" />
+                  <img src={post?.attributes?.Applogo} className={styles.img} alt="pubg" />
                   <div className={styles.dataWrap}>
-                    <h3>{item.title}</h3>
+                    <h3>{post?.attributes?.title}</h3>
                     <div className="d-flex align-items-center">
-                      <img src={item.star} alt="profile" />
-                      <span className={styles.starRate}> {item.starRate}</span>
+                      <img src='/assets/orange-star.svg' alt="profile" />
+                      <span className={styles.starRate}> {post?.attributes?.rating}</span>
                       <div className={styles.review}>
-                        <img src={item.profile} alt="profile" />
-                        <span>{item.review}</span>
+                        <img src='/assets/profile.svg' alt="profile" />
+                        <span>27.5k</span>
                       </div>
                     </div>
                     <div>
-                      <span className={styles.rate}>{item.rate} by</span>
-                      <span className={styles.level}>{item.level}</span>
+                      <span className={styles.rate}> {post?.attributes?.requirements} by </span>
+                      <span className={styles.level}>{post?.attributes?.publisher}</span>
                     </div>
-                    <div>{item.date}</div>
+                    <div>{ new Date(post?.attributes?.publishedOn || '2024-06-20').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                    }</div>
                   </div>
                 </div>
               </Col>
             </Row>
-          ))}
+
         </Container>
       </section>
     </>

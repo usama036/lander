@@ -1,37 +1,55 @@
 import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 
-const AboutGame = () => {
+const AboutGame = ({post}) => {
   const AboutGameData = [
     {
-      title: "App Name",
+      title:"App Name",
       img: "/assets/app-name.svg",
       alt: "app-name",
-      detail: "PUBG MOBILE",
+      detail:  post?.attributes?.title,
     },
     {
-      title: "App Name",
-      img: "/assets/app-name.svg",
+      title:  'Latest Version',
+      img: "/assets/2.svg",
       alt: "app-name",
-      detail: "PUBG MOBILE",
+      detail: post?.attributes?.latestVersion || '2.0.0',
     },
     {
-      title: "App Name",
-      img: "/assets/app-name.svg",
+      title: " Last Updated",
+      img: "/assets/3.svg",
       alt: "app-name",
-      detail: "PUBG MOBILE",
+      detail: post?.attributes?.publishedOn,
     },
     {
-      title: "App Name",
-      img: "/assets/app-name.svg",
+      title: "Publisher",
+      img: "/assets/4.svg",
       alt: "app-name",
-      detail: "PUBG MOBILE",
+      detail: post?.attributes?.publisher || '',
     },
     {
-      title: "App Name",
-      img: "/assets/app-name.svg",
+      title: "Requirements",
+      img: "/assets/5.svg",
       alt: "app-name",
-      detail: "PUBG MOBILE",
+      detail: `Android ${post?.attributes?.requirements}`,
+    },
+    {
+      title: "Category",
+      img: "/assets/6.svg",
+      alt: "app-name",
+      detail:post?.attributes?.category?.data?.attributes?.name,
+    },
+    {
+      title: "Size",
+      img: "/assets/7.svg",
+      alt: "app-name",
+      detail: post?.attributes.size,
+    },
+    {
+      title: "Google Playstore",
+      img: "/assets/8.svg",
+      alt: "app-name",
+      detail: "Google Playstore",
     },
   ];
 
@@ -74,16 +92,15 @@ const AboutGame = () => {
           ))}
         </Container>
         <Container className={styles.textContainer}>
-          {TextContainer.map((data, ind) => (
-            <Row key={ind}>
+
+            <Row >
               <Col className="col-sm-12">
-                <h3>{data.title}</h3>
-                <p>{data.dec}</p>
-                <p>{data.dec1}</p>
-                <p>{data.dec2}</p>
+                <div dangerouslySetInnerHTML={{ __html: post?.attributes?.post }}></div>
+
+
               </Col>
             </Row>
-          ))}
+
         </Container>
       </section>
     </>
