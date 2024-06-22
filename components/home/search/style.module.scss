@@ -1,0 +1,38 @@
+.SearchComponent {
+  .card {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    // @media (max-width: 1024px) {
+    // }
+    img {
+      @media (max-width: 1024px) {
+        width: 275px;
+      }
+    }
+    .cardBody {
+      .cardTitle {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 30px;
+        margin: 0.5rem 0 1rem;
+      }
+      .cardText {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 25px;
+      }
+      .cardButton {
+        margin-bottom: 1.5rem;
+      }
+      i {
+        color: #378b4f !important;
+        font-size: 18px !important;
+        margin-left: 15px;
+      }
+      p {
+        width: 70%;
+      }
+    }
+  }
+}

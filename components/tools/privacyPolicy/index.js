@@ -6,163 +6,63 @@ const PrivacyPolicy = () => {
     <>
       <section className={styles.PrivacyPolicy}>
         <Container>
-          <div className="">
-            <h2>Privacy Policy</h2>
-            <p>Effective as of June 20, 2022</p>
+          <div>
+            <h2 className="text-center">Privacy Policy</h2>
+            <h3>1. Introduction</h3>
             <p>
-              Our updated Privacy Policy explains what information we collect,
-              how we use it, and the choices you have, including how to manage
-              your privacy and cookies settings, access the information we have
-              about you, and delete your account. ModAPK is committed to
-              protecting consumer privacy online. We believe that greater
-              protection of personal privacy on the Web will not only protect
-              our users, but also increase users confidence and ultimately their
-              participation in online activities. The purpose of our policy is
-              to inform you about the types of information we gather about you
-              when you visit our site and our app, how we may use that
-              information, whether we disclose it to anyone, and the choices you
-              have regarding our use of the information. ModAPK strives to offer
-              its visitors the many advantages of Internet technology and to
-              provide an interactive and personalized experience.
+              Welcome to mod-apk.io (the “Website”). At mod-apk.io, we value
+              your privacy and strive to protect your personal information. This
+              Privacy Policy outlines the types of information we collect, how
+              we use it, and the choices you have regarding your information. By
+              using our Website, you consent to the practices described in this
+              Privacy Policy.
             </p>
-            <h2>Your Consent</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
-            </p>
-            <h2>What information do we collect?</h2>
-            <h3>Data you give us directly</h3>
+            <h3>2. Information We Collect</h3>
             <ul>
               <li>
-                Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut
-                faucibus orci in sit purus sapien. Velit nunc interdum arcu in.
+                <strong> Personal Information:</strong> We may collect personal
+                information such as your name and email address when you
+                subscribe to our newsletter or contact us through the Website.
               </li>
               <li>
-                Pellentesque nibh tristique a sollicitudin aliquet libero nec
-                tortor. Dolor sed sit risus facilisis pellentesque nibh.{" "}
-              </li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut
-                faucibus orci in sit purus sapien. Velit nunc interdum arcu in.{" "}
+                <strong> Usage Data:</strong> We collect information about your
+                interactions with the Website, including your IP address,
+                browser type, and device information.
               </li>
             </ul>
-            <h2>
-              Data we may collect when you use our services and App (whether or
-              not you register with us)
-            </h2>
+            <h3>3. How We Use Your Information</h3>
+            <p>We use the collected information for the following purposes:</p>
+            <ul>
+              <li>
+                To improve and personalize your experience on the Website.
+              </li>
+              <li>To respond to your inquiries or requests.</li>
+              <li>
+                To send periodic emails, including newsletters, updates, and
+                promotions.
+              </li>
+            </ul>
+            <h3>4. Third-Party Disclosure</h3>{" "}
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
+              We do not sell, trade, or otherwise transfer your personal
+              information to third parties without your consent.
             </p>
-            <h2>How do we use your information?</h2>
+            <h3>5. Security</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
+              We take reasonable steps to protect your personal information.
+              However, no method of data transmission or storage is 100% secure.
+              While we strive to protect your information, we cannot guarantee
+              its absolute security.
             </p>
-            <h2>Device Information.</h2>
+            <h3>6. Your Choices</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
+              You can unsubscribe from our newsletter at any time by following
+              the instructions provided in the email.
             </p>
-            <h2>Log Files.</h2>
+            <h3>7. Contact Us</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
-            </p>
-            <h2>Cookies and Web Beacons</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
-            </p>
-            <h2>Changes in Privacy Policy</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
-            </p>
-            <h2>Contacting ModAPK</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Lorem
-              ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus orci
-              in sit purus sapien. Velit nunc interdum arcu in. Pellentesque
-              nibh tristique a sollicitudin aliquet libero nec tortor. Dolor sed
-              sit risus facilisis pellentesque nibh. Lorem ipsum dolor sit amet
-              consectetur. Etiam vitae in ut faucibus orci in sit purus sapien.
-              Velit nunc interdum arcu in. Pellentesque nibh tristique a
-              sollicitudin aliquet libero nec tortor. Dolor sed sit risus
-              facilisis pellentesque nibh.
+              If you have any questions or concerns about this Privacy Policy or
+              our practices, please contact us at mod-apk@contact.com
             </p>
           </div>
         </Container>
