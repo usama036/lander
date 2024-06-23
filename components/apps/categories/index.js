@@ -114,7 +114,7 @@ const truncateText = (text, maxLength) => {
 const appsImagePath = "/assets/apps-logo.svg";
 const gamesImagePath = "/assets/gameboy.svg";
 
-const Categories = () => {
+const Categories = ({categories,type}) => {
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -283,7 +283,7 @@ const Categories = () => {
                       className={styles.MobSlider}
                     >
                       {categories.map((items, index) => (
-                        <div className={styles.categoriesWrap} key={index}>
+                        <div className={styles.categoriesWrap} key={index} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} >
                           <img
                             src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}
                             alt={items.attributes.name}
@@ -292,7 +292,7 @@ const Categories = () => {
                           <h4>
                             {isDesktopScreen
                               ? truncateText(items.attributes.name, 10)
-                              : items.title}
+                              : items.attributes.name}
                           </h4>
                         </div>
                       ))}
@@ -308,16 +308,16 @@ const Categories = () => {
                             md={6}
                             className={`${styles.categories}`}
                           >
-                            <div className={styles.categoriesWrap}>
+                            <div className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
                               <img
-                                src={items.img}
-                                alt={items.alt}
+                                   src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}
+                                   alt={items.attributes.name}
                                 style={{ width: "30px", height: "30px" }}
                               />
                               <h4>
                                 {isDesktopScreen
-                                  ? truncateText(items.title, 10)
-                                  : items.title}
+                                  ? truncateText(items.attributes.name, 10)
+                                  : items.attributes.name}
                               </h4>
                             </div>
                           </Col>
@@ -338,7 +338,7 @@ const Categories = () => {
                     <div className={styles.appsData}>
 
                       <Link href={{
-                        pathname: '/search',
+                        pathname: '/homedetails',
                         query: {
                           name: app.attributes.slug,
                         }

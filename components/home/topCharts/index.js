@@ -9,8 +9,7 @@ import PopularApps from "../../../components/apps/PopularApps";
 // import Categories from "../../../components/apps/categories";
 import AppsTrendingSearch from "../../../components/apps/appsTrendingSearch";
 import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
-import { gql } from '@apollo/client';
-import client from '../../../apollo-client';
+
 
 
 
@@ -47,7 +46,7 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
       // activeimg: "/assets/book-saved-green.svg",
       title: "Topics",
       eventKey: "Topics",
-      component: <AppsTrendingSearch />,
+      component: <AppsTrendingSearch   apps={apps} />,
       // disabled: true,
     },
   ];

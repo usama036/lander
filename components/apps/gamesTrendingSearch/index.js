@@ -161,14 +161,14 @@ const GamesTrending = ({games}) => {
                     />
                     <p>{truncateText(app.attributes.title, 20)}</p>
                     <div className="d-flex align-items-center justify-content-start">
-                      {" "}
+                      {' '}
                       <img
                         src={appData[0].orange}
                         alt="orange"
                         style={{
-                          width: "18px",
-                          height: "18px",
-                          marginRight: "2px",
+                          width: '18px',
+                          height: '18px',
+                          marginRight: '2px',
                         }}
                       />
                       <span>{app.attributes.rating}</span>
