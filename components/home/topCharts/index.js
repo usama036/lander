@@ -6,7 +6,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { Button, Container } from "react-bootstrap";
 import PopularApps from "../../../components/apps/PopularApps";
-import Categories from "../../../components/apps/categories";
+// import Categories from "../../../components/apps/categories";
 import AppsTrendingSearch from "../../../components/apps/appsTrendingSearch";
 import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
 import { gql } from '@apollo/client';
@@ -40,6 +40,16 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
       component: <AppsTrendingSearch  apps={apps} />,
       // disabled: true,
     },
+    {
+      id: 4,
+      img: "/assets/apps-logo.svg",
+      alt: "apps-logo",
+      // activeimg: "/assets/book-saved-green.svg",
+      title: "Topics",
+      eventKey: "Topics",
+      component: <AppsTrendingSearch />,
+      // disabled: true,
+    },
   ];
   return (
     <>
@@ -55,13 +65,19 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
           >
             {tabsData.map((data, index) => (
               <Tab
+                activeKey={activeKey}
+                onSelect={(k) => setActiveKey(k)}
                 key={index}
                 eventKey={data.eventKey}
                 // disabled={data.disabled}
                 className={styles.tab}
                 title={
                   <div className="d-flex align-items-center">
-                    <img src={data.img} alt={data.alt} />
+                    {/* <img src={data.img} alt={data.alt} /> */}
+                    {data.id !== 1 && <img src={data.img} alt={data.alt} />}
+                    {/* {!(activeKey === data.eventKey) && data.activeimg && (
+                      <img src={data.activeimg} alt={data.alt} />
+                    )} */}
                     <p>{data.title}</p>
                   </div>
                 }

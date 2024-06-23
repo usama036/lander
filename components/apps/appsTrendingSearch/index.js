@@ -38,7 +38,6 @@ const appData = [
   },
 ];
 
-
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
     return text;
@@ -52,61 +51,69 @@ const AppsTrending = ({apps}) => {
   const sliderRef = React.useRef(null);
 
   const settings = {
-    infinite: true,
-    slidesToShow: 9.5,
+    infinite: false,
+    slidesToShow: 9.25,
     slidesToScroll: 1,
     arrows: false,
-    centerMode: true, // Center the active slide
     centerPadding: "0", // No padding to make it seamless
+    dots: false,
+    autoplay: true,
+    swipeToSlide: true,
+    cssEase: "linear",
+    autoplaySpeed: 2500,
     responsive: [
-      {
-        breakpoint: 1660,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
+      //   {
+      //     breakpoint: 1660,
+      //     settings: {
+      //       slidesToShow: 3,
+      //       slidesToScroll: 1,
+      //       infinite: true,
+      //     },
+      //   },
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
+          slidesToShow: 7.25,
         },
       },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
+      // {
+      //   breakpoint: 1280,
+      //   settings: {
+      //     slidesToShow: 3.15,
+      //   },
+      // },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
+          slidesToShow: 6.25,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 992,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4.25,
           slidesToScroll: 1,
-          centerMode: true, // Center the active slide
-          centerPadding: "0", // No padding to make it seamless
         },
       },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3.25,
+          slidesToScroll: 1,
+        },
+      },
+      // {
+      //   breakpoint: 576,
+      //   settings: {
+      //     slidesToShow: 2.75,
+      //     slidesToScroll: 1,
+      //   },
+      // },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3.15,
           slidesToScroll: 1,
-          centerMode: true, // Center the active slide
-          centerPadding: "0", // No padding to make it seamless
         },
       },
     ],
@@ -115,68 +122,53 @@ const AppsTrending = ({apps}) => {
     <>
       <section className={styles.AppsTrending}>
         <Container className={styles.Container}>
-          <div className="popular-apps-container">
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <h2>
-                  Apps . <span> Trending Searches</span>
-                </h2>
-                <p>Top 10 trending searches for May</p>
-              </div>
-              <div>
-                {" "}
-                <Button variant="none" type="button" className="seeAllBtn">
-                  See All
-                </Button>
-              </div>
+          <div className={styles.row}>
+            <div>
+              <h2>
+                Apps . <span> Trending Searches</span>
+              </h2>
+              <p>Top 10 trending searches for May</p>
             </div>
-            <div className="position-relative">
-              <Slider ref={sliderRef} {...settings} className={styles.slider}>
-                {apps.map((app, index) => (
-                  <Link
-                    href={{
-                      pathname: '/homedetails',
-                      query: {
-                        name: app.attributes.slug
-                      }
-                    }}
-                  >
-                    <div key={index} className={styles.appCard}>
-                      <img
-                        src={app.attributes.Applogo}
-                        alt={app.attributes.title}
-                        className={styles.appImg}
-                      />
-                      <p>{truncateText(app.attributes.title, 20)}</p>
-                      <div className="d-flex align-items-center justify-content-start">
-                        {' '}
-                        <img
-                          src={appData[0].orange}
-                          alt="orange"
-                          style={{
-                            width: '18px',
-                            height: '18px',
-                            marginRight: '2px',
-                          }}
-                        />
-                        <span>{app.attributes.rating}</span>
-                      </div>
-                      </div>
-                  </Link>
-                  ))}
-              </Slider>
-            </div>
-            <div className={styles.navigation}>
-              <Button
-                variant="none"
-                type="button"
-                className={`rightSliderButton ${styles.button}`}
-                onClick={() => sliderRef.current.slickNext()}
-              >
-                <i className="fa-solid fa-chevron-right"></i>
+            <div>
+              {" "}
+              <Button variant="none" type="button" className="seeAllBtn">
+                See All
               </Button>
             </div>
           </div>
+          <div className="position-relative">
+            <Slider ref={sliderRef} {...settings} className={styles.slider}>
+              {apps.map((app, index) => (
+                <Link
+                  href={{
+                    pathname: '/homedetails',
+                    query: {
+                      name: app.attributes.slug
+                    }
+                  }}
+                >
+                  <div key={index}>
+                    <img
+                      src={app.attributes.Applogo}
+                      alt={app.attributes.title}
+                      className={styles.appImg}
+                    />
+                    <p>{truncateText(app.attributes.title, 15)}</p>
+                  </div>
+                </Link>
+              ))}
+            </Slider>
+          </div>
+          {/* <div className={styles.navigation}>
+            <Button
+              variant="none"
+              type="button"
+              className={`rightSliderButton ${styles.button}`}
+              onClick={() => sliderRef.current.slickNext()}
+            >
+              <i className="fa-solid fa-chevron-right"></i>
+            </Button>
+          </div> */}
         </Container>
       </section>
     </>

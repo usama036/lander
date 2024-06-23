@@ -40,63 +40,72 @@ const GameScreenshots = ({post}) => {
   ];
   const settings = {
     infinite: false,
-    slidesToShow: 4.5,
+    slidesToShow: 2.25,
     slidesToScroll: 1,
     arrows: false,
-    centerMode: false, // Center the active slide
     centerPadding: "0", // No padding to make it seamless
-    // responsive: [
-    //   {
-    //     breakpoint: 1660,
-    //     settings: {
-    //       slidesToShow: 3,
-    //       slidesToScroll: 1,
-    //       infinite: true,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 1440,
-    //     settings: {
-    //       slidesToShow: 3,
-    //       slidesToScroll: 1,
-    //       infinite: true,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 1280,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       slidesToScroll: 1,
-    //       infinite: true,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       slidesToScroll: 1,
-    //       infinite: true,
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 600,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1,
-    //       centerMode: true, // Center the active slide
-    //       centerPadding: "0", // No padding to make it seamless
-    //     },
-    //   },
-    //   {
-    //     breakpoint: 480,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1,
-    //       centerMode: true, // Center the active slide
-    //       centerPadding: "0", // No padding to make it seamless
-    //     },
-    //   },
-    // ],
+    dots: false,
+    autoplay: false,
+    swipeToSlide: true,
+    cssEase: "linear",
+    autoplaySpeed: 2500,
+    responsive: [
+      //   {
+      //     breakpoint: 1660,
+      //     settings: {
+      //       slidesToShow: 3,
+      //       slidesToScroll: 1,
+      //       infinite: true,
+      //     },
+      //   },
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 2.25,
+        },
+      },
+      // {
+      //   breakpoint: 1280,
+      //   settings: {
+      //     slidesToShow: 2.5,
+      //   },
+      // },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1.75,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1.35,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -106,9 +115,13 @@ const GameScreenshots = ({post}) => {
           {appData.map((item, index) => (
             <Row key={index}>
               <h3>{item.title}</h3>
-              <Slider className={styles.slider} ref={sliderRef} {...settings}>
-                <Link href="/homedetails">
-                  {item.data.map((items, e) => (
+              <Slider
+                className={styles.gameSlider}
+                ref={sliderRef}
+                {...settings}
+              >
+                {item.data.map((items, e) => (
+                  <Link href="/homedetails">
                     <div key={e}>
                       <img
                         src={items.img}
@@ -116,14 +129,14 @@ const GameScreenshots = ({post}) => {
                         className={styles.appImg}
                       />
                     </div>
-                  ))}
-                </Link>
+                  </Link>
+                ))}
               </Slider>
               <div className={styles.navigation}>
                 <Button
                   variant="none"
                   type="button"
-                  className={`rightSliderButton ${styles.button}`}
+                  className={`SliderButton ${styles.button}`}
                   onClick={() => sliderRef.current.slickNext()}
                 >
                   <i class="fa-solid fa-chevron-right"></i>

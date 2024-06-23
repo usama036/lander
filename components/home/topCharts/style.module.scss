@@ -1,5 +1,5 @@
 .TopCharts {
-  background-color: rgb(203, 200, 196);
+  // background-color: rgb(203, 200, 196);
   padding-top: 2rem;
   padding-bottom: 3rem;
   .Container {
@@ -20,7 +20,7 @@
         justify-content: center;
         align-items: center;
         background-color: white;
-        width: 28%;
+        width: 50%;
         margin: 0 auto 2rem;
         border-radius: 50px;
         padding-top: 4px;
@@ -28,10 +28,29 @@
         .nav-item {
           img {
             margin-right: 5px;
+            @media (max-width: 576px) {
+              height: 18px;
+              width: 18px;
+            }
           }
         }
-        @media (min-width: 1681px) {
-          width: 32.25% !important;
+        @media (min-width: 1680px) {
+          width: 43%;
+        }
+        @media (max-width: 1400px) {
+          width: 52%;
+        }
+        @media (max-width: 1280px) {
+          width: 65%;
+        }
+        @media (max-width: 1024px) {
+          width: 71%;
+        }
+        @media (max-width: 991px) {
+          width: 65%;
+        }
+        @media (max-width: 576px) {
+          width: 100%;
         }
       }
       .nav-tabs .nav-link {
@@ -47,6 +66,14 @@
         width: 150px;
         padding: 5px 13px;
         border-radius: 50px !important;
+        @media (max-width: 991px) {
+          width: 110px;
+        }
+        @media (max-width: 576px) {
+          font-size: 14px;
+          height: 35px;
+          width: 83px;
+        }
         p {
           margin-bottom: 0px !important;
         }
@@ -57,10 +84,14 @@
       }
       .nav-tabs .nav-link.active {
         background-color: #378b4f !important;
-        color: white;
+        color: black;
         font-weight: 700;
         font-size: 16px;
         line-height: 20px;
+        @media (max-width: 576px) {
+          font-weight: 600;
+          font-size: 14px;
+        }
       }
     }
   }
