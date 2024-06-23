@@ -12,8 +12,9 @@ import {
 import styles from "./style.module.scss";
 import Link from "next/link";
 
-const header = () => {
+const Header = () => {
   const [show, setShow] = useState(false);
+  const [value, setValue] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,7 +36,6 @@ const header = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <>
       <Navbar variant="light" expand="lg" className={`${styles.header}`}>
@@ -71,12 +71,20 @@ const header = () => {
                         type="search"
                         placeholder="Search for apps, games"
                         aria-label="Search"
+                        onChange={e =>setValue(e.target.value)}
                       />
+                      <Link href={{
+                        pathname: '/search',
+                        query: {
+                          name: value,
+                        }
+                      }} >
                       <img
                         src="/assets/search.svg"
                         className={`${styles.searchMob}`}
                         alt="search"
                       />
+                      </Link>
                     </InputGroup>
                   </Form>
                 </div>
@@ -145,14 +153,23 @@ const header = () => {
                     type="search"
                     placeholder="Search for apps, games"
                     aria-label="Search"
-                  />
+                    onChange={e => {
+                      setValue(e.target.value);
+                    }}                  />
+                  <Link href={{
+                    pathname: '/search',
+                    query: {
+                      name: value,
+                    }
+                  }} >
                   <img
                     src="/assets/search.svg"
                     className={`${styles.search}`}
                     alt="search"
                   />
+                  </Link>/
                 </InputGroup>
-                <div>lang</div>
+                {/*<div>lang</div>*/}
               </Form>
             </div>
           </Navbar.Collapse>
@@ -232,4 +249,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

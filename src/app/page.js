@@ -3,46 +3,79 @@ import Explore from "../../components/home/explore";
 import TopCharts from "../../components/home/topCharts";
 import { gql } from '@apollo/client';
 import client from '../../apollo-client';
-const GET_PAGE_DATA = gql`
+const GET_PAGE_APP_DATA = gql`
     query {
-        pages(filters: { title: { eq: "Apps" } }) {
+        blogPosts(
+            pagination: { limit:50 }
+            filters: {
+                category: { PageCategory: { eq: "Apps" } }
+                isPopular: { eq: true }
+            }
+        ) {
             data {
+                id
                 attributes {
-                    slug
                     title
-                    sections {
-                        title
-                        secName
-                        description
-                        subTitle
-
-                        buttons {
-                            title
-                            url
+                    rating
+                    slug
+                    Applogo
+                    subtitle
+                    featuredImage{
+                        data{
+                            attributes{
+                                url
+                            }
                         }
-                        cards {
-                            title
-                            image1 {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
+                    }
+                    category {
+                        data {
+                            id
+                            attributes {
+                                PageCategory
                             }
-                            image2 {
-                                data {
-                                    attributes {
-                                        url
-                                    }
-                                }
-                            }
-                            jsonData
-                            subTitle
-                            description
                         }
                     }
                 }
             }
+
+        }
+    }
+`
+const GET_PAGE_GAMES_DATA = gql`
+    query {
+        blogPosts(
+            pagination: { limit:50 }
+            filters: {
+                category: { PageCategory: { eq: "Games" } }
+                isPopular: { eq: true }
+            }
+        ) {
+            data {
+                id
+                attributes {
+                    title
+                    rating
+                    slug
+                    Applogo
+                    subtitle
+                    featuredImage{
+                        data{
+                            attributes{
+                                url
+                            }
+                        }
+                    }
+                    category {
+                        data {
+                            id
+                            attributes {
+                                PageCategory
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
 `
@@ -101,14 +134,15 @@ const Get_Games = gql`
     }
 `
 const Apps = async () => {
-  const  pageData  = await client.query({ query: GET_PAGE_DATA });
+  const  pageAppData  = await client.query({ query: GET_PAGE_APP_DATA });
+  const  pageGameData  = await client.query({ query: GET_PAGE_GAMES_DATA });
   const  getApps  = await client.query({ query: Get_Apps });
   const  getGames  = await client.query({ query: Get_Games });
   return (
     <>
       <ModeApkBanner />
         <Explore />
-      <TopCharts pageData={pageData.data.pages.data[0].attributes.sections[0]} apps={getApps.data.blogPosts.data} games={getGames.data.blogPosts.data}/>
+      <TopCharts pageAppData={pageAppData.data.blogPosts.data} pageGameData={pageGameData.data.blogPosts.data}  apps={getApps.data.blogPosts.data} games={getGames.data.blogPosts.data}/>
     </>
   );
 };

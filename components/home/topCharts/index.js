@@ -14,7 +14,7 @@ import client from '../../../apollo-client';
 
 
 
-const TopCharts =  ({pageData,apps,games}) => {
+const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
   const [activeKey, setActiveKey] = useState("All");
 
   const tabsData = [
@@ -68,8 +68,8 @@ const TopCharts =  ({pageData,apps,games}) => {
               >
                 {data.eventKey === "All" && <AppsTrendingSearch apps={apps}/>}
                 {data.eventKey === "All" && <GamesTrendingSearch games={games}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageData}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageData} />}
+                {data.eventKey === "All" && <PopularApps pageData={pageAppData}/>}
+                {data.eventKey === "All" && <PopularApps pageData={pageGameData} />}
                 <div className={styles.tabs}>{data.component}</div>
               </Tab>
             ))}

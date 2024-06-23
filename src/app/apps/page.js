@@ -31,54 +31,49 @@ const GET_DATA = gql`
 
 
 const GET_PAGE_DATA = gql`
-query {
-    pages(filters: { title: { eq: "Apps" } }) {
-        data {
-            attributes {
-                slug
-                title
-                sections {
+    query {
+        blogPosts(
+            pagination: { limit:50 }
+            filters: {
+                category: { PageCategory: { eq: "Apps" } }
+                isPopular: { eq: true }
+            }
+        ) {
+            data {
+                id
+                attributes {
                     title
-                    secName
-                    description
-                    subTitle
-
-                    buttons {
-                        title
-                        url
+                    rating
+                    slug
+                    Applogo
+                    subtitle
+                    featuredImage{
+                        data{
+                            attributes{
+                                url
+                            }
+                        }
                     }
-                    cards {
-                        title
-                        image1 {
-                            data {
-                                attributes {
-                                    url
-                                }
+                    category {
+                        data {
+                            id
+                            attributes {
+                                PageCategory
                             }
                         }
-                        image2 {
-                            data {
-                                attributes {
-                                    url
-                                }
-                            }
-                        }
-                        jsonData
-                        subTitle
-                        description
                     }
                 }
             }
+
         }
     }
-}
 `
 const Apps = async () => {
     const { data } = await client.query({ query: GET_DATA });
     const  pageData  = await client.query({ query: GET_PAGE_DATA });
     return (
     <>
-         <PopularApps pageData={pageData.data.pages.data[0].attributes.sections[0]}    />
+        <PopularApps pageData={pageData.data.blogPosts.data}  />
       <Categories categories={data.blogCategories.data} type={'Apps'}/>      {/* <TopCharts /> */}
     </>
   );

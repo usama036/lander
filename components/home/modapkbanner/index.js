@@ -1,11 +1,12 @@
 "use client"; // Add this directive at the top
-import React, { useRef } from "react";
+import React, { useRef, useState } from 'react';
 import Link from "next/link";
 import styles from "./style.module.scss";
-import { Row, Col, Container, Form, InputGroup, Button } from "react-bootstrap";
+import { Row, Col, Container, Form, InputGroup, Button, Alert } from 'react-bootstrap';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 
 const modapkData = [
   {
@@ -58,9 +59,19 @@ const slider = [
   },
 ];
 
-const modapkbanner = () => {
+const Modapkbanner = () => {
   const homeSliderRef = useRef(null);
+  const [value, setValue] = useState('');
+  const [isEmpty, setIsEmpty] = useState(false);
 
+  const handleClick = (e) => {
+    if (value.trim() === '') {
+      e.preventDefault();
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
+    }
+  };
   const sliderNext = () => {
     homeSliderRef.current.slickNext();
   };
@@ -102,20 +113,36 @@ const modapkbanner = () => {
                     <InputGroup className={styles.InputGroup}>
                       <Form.Control
                         type="search"
+                        required={true}
                         placeholder="Search for apps, games"
+                        onChange={e=>(setValue(e.target.value))}
                         aria-label="Search"
+
                       />
                     </InputGroup>
-                    <Link href="/search">
+
+                    <Link href={{
+                      pathname: '/search',
+                      query: {
+                        name: value
+                      }
+                    }} >
                       <Button
                         variant="none"
-                        type="sumbit"
+                        type="submit"
                         className={`${styles.button}`}
+                        onClick={handleClick}
+
                       >
-                        Find App
+                          Find App
                       </Button>
                     </Link>
                   </Form>
+                  {isEmpty && (
+                    <Alert variant="danger" style={{ color: 'red' }}>
+                      Value is required
+                    </Alert>
+                  )}
                 </div>
               </Col>
             ))}
@@ -188,4 +215,4 @@ const modapkbanner = () => {
   );
 };
 
-export default modapkbanner;
+export default Modapkbanner;

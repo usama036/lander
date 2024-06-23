@@ -9,6 +9,7 @@ import Link from "next/link";
 
 
 const PopularApps = ({pageData}) => {
+  console.log('pageData',pageData);
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -92,24 +93,29 @@ const PopularApps = ({pageData}) => {
             </div>
             <div className="apps-slider">
               <Slider ref={sliderRef} {...settings} className={styles.slider}>
-                {pageData.cards.map((app, index) => (
-                  <Link key={index} href="/homedetails">
+                {pageData.map((app, index) => (
+                  <Link href={{
+                    pathname: '/homedetails',
+                    query: {
+                      name: app?.attributes?.slug
+                    }
+                  }} >
 
                   <div  className={styles.appCard}>
                     <img
-                      src={`http://localhost:1337${app.image1.data[0].attributes.url}`}
-                      alt={app.title}
+                      src={`http://localhost:1337${app?.attributes?.featuredImage?.data?.attributes?.url}`}
+                      alt={app?.attributes?.title}
                       className={styles.appImg}
                     />
                     <div className="d-flex">
                       <img
-                        src={`http://localhost:1337${app.image2.data[0].attributes.url}`}
-                        alt={app.name}
+                        src={app?.attributes?.Applogo}
+                        alt={app?.attributes?.title}
                         className={styles.appSmallImg}
                       />
                       <div className={styles.appInfo}>
-                        <h3>{app.title}</h3>
-                        <p>{app.subTitle}</p>
+                        <h3>{app?.attributes?.title}</h3>
+                       <p>{app?.attributes?.subtitle}</p>
                       </div>
                     </div>
                   </div>

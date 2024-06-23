@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import { Container, Row, Col, Card, Button, Pagination } from 'react-bootstrap';
+import Link from 'next/link';
 
 // Sample data
 const apps1 = [
@@ -258,6 +259,13 @@ const Categories = ({ categories,type }) => {
                 {apps.map((app, e) => (
                   <div key={e}>
                     <div className={styles.appsData}>
+
+                      <Link href={{
+                        pathname: '/search',
+                        query: {
+                          name: app.attributes.slug,
+                        }
+                      }} >
                       <div className={styles.data}>
                         <img
                           src={app.attributes.Applogo}
@@ -312,6 +320,15 @@ const Categories = ({ categories,type }) => {
                           <p>{app.attributes.size}</p>
                         </div>
                       </div>
+                      </Link>
+
+
+                      <Link href={{
+                        pathname: '/search',
+                        query: {
+                          name: app.attributes.slug,
+                        }
+                      }} >
                       <div className={styles.buttonWrap}>
                         <Button variant="none" className={styles.button}>
                           <img
@@ -326,7 +343,13 @@ const Categories = ({ categories,type }) => {
                           Download APK
                         </Button>
                       </div>
+                      </Link>
                     </div>
+
+
+
+
+
                   </div>
                 ))}
 
