@@ -1,6 +1,9 @@
 .header {
-  background-color: bisque;
-  height: 84px;
+  background-color: white;
+  position: sticky !important;
+  top: 0 !important;
+  height: 84px !important;
+  z-index: 1 !important;
   :global {
     .navbar-toggler {
       padding: 5px;
@@ -170,7 +173,6 @@
 }
 // header
 .Offcanvas {
-  // background-color: #174b26 !important;
   .link {
     font-weight: 500;
     line-height: 24px;

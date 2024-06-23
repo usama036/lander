@@ -1,7 +1,11 @@
 "use client"; // Add this directive at the top
 import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import styles from "./style.module.scss";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Sample data
 const apps = [
@@ -152,6 +156,44 @@ const appsImagePath = "/assets/apps-logo.svg";
 const gamesImagePath = "/assets/gameboy.svg";
 
 const Categories = () => {
+  const sliderRef = React.useRef(null);
+
+  const settings = {
+    infinite: false,
+    slidesToShow: 2.25,
+    slidesToScroll: 1,
+    arrows: false,
+    centerPadding: "0", // No padding to make it seamless
+    dots: false,
+    autoplay: true,
+    swipeToSlide: true,
+    cssEase: "linear",
+    autoplaySpeed: 2500,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3.25,
+          slidesToScroll: 1,
+        },
+      },
+      // {
+      //   breakpoint: 768,
+      //   settings: {
+      //     slidesToShow: 3.25,
+      //     slidesToScroll: 1,
+      //   },
+      // },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.25,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const isMobile = useMediaQuery({ query: "(max-width: 992px)" }); // Use media query
   const currentPath = window.location.pathname;
   const timestamp = Date.now();
 
@@ -191,25 +233,58 @@ const Categories = () => {
                 />
                 <h4>Categories</h4>
               </div>
-              <div className={styles.categoriesData}>
-                <Row className={styles.categoriesRow}>
-                  {categories.map((items, index) => (
-                    <Col key={index} md={6} className={`${styles.categories}`}>
-                      <div className={styles.categoriesWrap}>
-                        <img
-                          src={items.img}
-                          alt={items.alt}
-                          style={{ width: "30px", height: "30px" }}
-                        />
-                        <h4>
-                          {isDesktopScreen
-                            ? truncateText(items.title, 10)
-                            : items.title}
-                        </h4>
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
+              <div>
+                {isMobile ? (
+                  <>
+                    <Slider
+                      ref={sliderRef}
+                      {...settings}
+                      className={styles.MobSlider}
+                    >
+                      {categories.map((items, index) => (
+                        <div className={styles.categoriesWrap} key={index}>
+                          <img
+                            src={items.img}
+                            alt={items.alt}
+                            style={{ width: "30px", height: "30px" }}
+                          />
+                          <h4>
+                            {isDesktopScreen
+                              ? truncateText(items.title, 5)
+                              : items.title}
+                          </h4>
+                        </div>
+                      ))}
+                    </Slider>
+                  </>
+                ) : (
+                  <>
+                    <div className={styles.categoriesData}>
+                      <Row className={styles.categoriesRow}>
+                        {categories.map((items, index) => (
+                          <Col
+                            key={index}
+                            md={6}
+                            className={`${styles.categories}`}
+                          >
+                            <div className={styles.categoriesWrap}>
+                              <img
+                                src={items.img}
+                                alt={items.alt}
+                                style={{ width: "30px", height: "30px" }}
+                              />
+                              <h4>
+                                {isDesktopScreen
+                                  ? truncateText(items.title, 10)
+                                  : items.title}
+                              </h4>
+                            </div>
+                          </Col>
+                        ))}
+                      </Row>
+                    </div>
+                  </>
+                )}
               </div>
             </Col>
             <Col md={12} lg={8} xl={8} className={styles.colRight}>

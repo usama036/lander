@@ -15,16 +15,28 @@
         margin-bottom: 1rem;
         text-align: center;
         font-size: 20px;
-        font-weight: 500;
+        font-weight: 700;
         line-height: 25px;
       }
     }
-    .slider {
-      .appCard {
-        .appImg {
-          border-radius: 10px;
-          margin-bottom: 10px;
-          // width: 350px;
+    .gameSlider {
+      .appImg {
+        border-radius: 10px;
+        margin-bottom: 10px;
+        width: 320px;
+        height: 180px;
+        object-fit: cover;
+        @media (max-width: 992px) {
+          width: 275px;
+        }
+      }
+      @media (max-width: 576px) {
+        :global {
+          .slick-slide {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+          }
         }
       }
     }
@@ -32,33 +44,36 @@
       position: relative;
       .button {
         position: absolute;
-        top: -182px;
-        right: -100px;
-        @media (max-width: 1380px) {
-          right: -60px;
+        top: -124px;
+        right: 23px;
+        // @media (max-width: 1380px) {
+        //   // right: -60px;
+        // }
+        // @media (max-width: 768px) {
+        //   // top: -158px;
+        // }
+        @media (max-width: 576px) {
+          right: 10px;
         }
         i {
           color: black;
-          font-size: 35px;
-          @media (max-width: 1380px) {
-            font-size: 20px;
-          }
+          font-size: 18px;
+          // @media (max-width: 1380px) {
+          //   font-size: 20px;
+          // }
         }
       }
-      @media (max-width: 1024px) {
-        display: none;
-      }
-    }
-    :global {
-      .apps-slider {
-        .slick-slider .slick-track,
-        .slick-slider .slick-list {
-          // transform: translate3d(0px, 0px, 0px);
-          // -webkit-transform: translate3d(0, 0, 0);
-          // -moz-transform: translate3d(0, 0, 0);
-          // -ms-transform: translate3d(0, 0, 0);
-          // -o-transform: translate3d(0, 0, 0);
-          // transform: translate3d(0, 0, 0);
+      :global {
+        .SliderButton {
+          background-color: white !important;
+          border-radius: 50px !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+          height: 32px !important;
+          width: 32px !important;
         }
       }
     }

@@ -194,3 +194,10 @@ a {
     width: 65px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .rightSliderButton {
+    height: 45px !important;
+    width: 45px !important;
+  }
+}
