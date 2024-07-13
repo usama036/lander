@@ -1,6 +1,6 @@
-import { Row, Col, Container, Button } from "react-bootstrap";
-import Link from "next/link";
+import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const GameScreenshots = () => {
   const GameScreenshotsData = [
@@ -24,14 +24,24 @@ const GameScreenshots = () => {
             <Row key={index}>
               <Col xs={12} sm={12} md={12} lg={12} className={styles.col}>
                 <div className={styles.colWrap}>
-                  <img src={item.img} className={styles.img} alt="pubg" />
+                  <Image width={93} height={93} src={item.img} alt="pubg" />
                   <div className={styles.dataWrap}>
                     <h3>{item.title}</h3>
                     <div className="d-flex align-items-center">
-                      <img src={item.star} alt="profile" />
+                      <Image
+                        src={item.star}
+                        width={10}
+                        height={10}
+                        alt="profile"
+                      />
                       <span className={styles.starRate}> {item.starRate}</span>
                       <div className={styles.review}>
-                        <img src={item.profile} alt="profile" />
+                        <Image
+                          width={10}
+                          height={10}
+                          src={item.profile}
+                          alt="profile"
+                        />
                         <span>{item.review}</span>
                       </div>
                     </div>

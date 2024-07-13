@@ -1,5 +1,6 @@
 import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const Explore = () => {
   const explopreData = [
@@ -45,7 +46,7 @@ const Explore = () => {
               >
                 <div>
                   {" "}
-                  <img src={data.img} alt={data.alt} />
+                  <Image src={data.img} width={60} height={60} alt={data.alt} />
                 </div>
                 <div>
                   <h3>{data.title}</h3>

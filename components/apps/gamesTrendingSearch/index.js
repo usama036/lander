@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const appData = [
   {
@@ -146,22 +147,26 @@ const GamesTrending = () => {
               {appData.map((app, index) => (
                 <div key={index} className={styles.appCard}>
                   <Link href="/homedetails">
-                    <img
+                    <Image
                       src={app.imgSrc}
                       alt={app.altText}
+                      width={93}
+                      height={93}
                       className={styles.appImg}
                     />
                     <p>{truncateText(app.name, 15)}</p>
                     <div className="d-flex align-items-center justify-content-start">
                       {" "}
-                      <img
+                      <Image
                         src={app.orange}
                         alt="orange"
                         style={{
-                          width: "18px",
-                          height: "18px",
+                          // width: "18px",
+                          // height: "18px",
                           marginRight: "2px",
                         }}
+                        width={18}
+                        height={18}
                       />
                       <span>{app.rate}</span>
                     </div>

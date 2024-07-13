@@ -1,6 +1,7 @@
 import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   const footerData = [
@@ -28,9 +29,11 @@ const Footer = () => {
           <Row className="row">
             <Col className={`col-xs-12 col-sm-12 col-md-3 ${styles.col}`}>
               <Link href="/" className="me-40">
-                <img
+                <Image
                   src="/assets/logo.svg"
-                  className={`d-inline-block ${styles.headerLogo}`}
+                  width={166}
+                  height={44}
+                  className={`d-inline-block`}
                   alt="Logo"
                 />
               </Link>
@@ -39,17 +42,27 @@ const Footer = () => {
               </p>
               <h6 className="mt-4">SOCIAL MEDIA</h6>
               <div className="d-flex">
-                <Link className={`me-10 ${styles.link}`} href="/">
-                  <img src="/assets/fb.svg" alt="fb" />
+                <Link className="me-10" href="/">
+                  <Image height={40} width={40} src="/assets/fb.svg" alt="fb" />
                 </Link>
-                <Link className={`me-10 ${styles.link}`} href="/">
-                  <img src="/assets/X.svg" alt="fb" />
+                <Link className="me-10" href="/">
+                  <Image height={40} width={40} src="/assets/X.svg" alt="fb" />
                 </Link>
-                <Link className={`me-10 ${styles.link}`} href="/">
-                  <img src="/assets/linkedin.svg" alt="fb" />
+                <Link className="me-10" href="/">
+                  <Image
+                    height={40}
+                    width={40}
+                    src="/assets/linkedin.svg"
+                    alt="fb"
+                  />
                 </Link>
-                <Link className={`me-10 ${styles.link}`} href="/">
-                  <img src="/assets/insta.svg" alt="fb" />
+                <Link className="me-10" href="/">
+                  <Image
+                    height={40}
+                    width={40}
+                    src="/assets/insta.svg"
+                    alt="fb"
+                  />
                 </Link>
               </div>
             </Col>

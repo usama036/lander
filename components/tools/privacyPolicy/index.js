@@ -1,5 +1,5 @@
 import styles from "./style.module.scss";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const PrivacyPolicy = () => {
   return (

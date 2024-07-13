@@ -1,5 +1,6 @@
 import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const AboutGame = () => {
   const AboutGameData = [
@@ -62,7 +63,12 @@ const AboutGame = () => {
               >
                 <div className={styles.colWrap}>
                   <div className="d-flex align-items-center">
-                    <img src={data.img} alt={data.alt} />
+                    <Image
+                      src={data.img}
+                      alt={data.alt}
+                      width={20}
+                      height={20}
+                    />
                     <p>{data.title}</p>
                   </div>
                 </div>

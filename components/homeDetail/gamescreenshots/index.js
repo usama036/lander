@@ -1,11 +1,12 @@
 "use client"; // Add this directive at the top
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const appData = [
   {
@@ -43,33 +44,19 @@ const GameScreenshots = () => {
     slidesToShow: 2.25,
     slidesToScroll: 1,
     arrows: false,
-    centerPadding: "0", // No padding to make it seamless
+    centerPadding: "0",
     dots: false,
     autoplay: false,
     swipeToSlide: true,
     cssEase: "linear",
     autoplaySpeed: 2500,
     responsive: [
-      //   {
-      //     breakpoint: 1660,
-      //     settings: {
-      //       slidesToShow: 3,
-      //       slidesToScroll: 1,
-      //       infinite: true,
-      //     },
-      //   },
       {
         breakpoint: 1440,
         settings: {
           slidesToShow: 2.25,
         },
       },
-      // {
-      //   breakpoint: 1280,
-      //   settings: {
-      //     slidesToShow: 2.5,
-      //   },
-      // },
       {
         breakpoint: 1024,
         settings: {
@@ -121,9 +108,11 @@ const GameScreenshots = () => {
                 {...settings}
               >
                 {item.data.map((items, e) => (
-                  <Link href="/homedetails">
-                    <div key={e}>
-                      <img
+                  <Link href="/homedetails" key={e}>
+                    <div>
+                      <Image
+                        width={320}
+                        height={180}
                         src={items.img}
                         alt={items.alt}
                         className={styles.appImg}

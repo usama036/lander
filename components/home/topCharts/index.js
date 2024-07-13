@@ -1,14 +1,28 @@
-"use client"; // Add this directive at the top
+"use client";
 import React, { useState, useEffect } from "react";
-// import Link from "next/link";
 import styles from "./style.module.scss";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import PopularApps from "../../../components/apps/PopularApps";
-// import Categories from "../../../components/apps/categories";
 import AppsTrendingSearch from "../../../components/apps/appsTrendingSearch";
 import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
+//
+// const PopularApps = dynamic(
+//   () => import("../../../components/apps/PopularApps"),
+//   { ssr: false }
+// );
+// const AppsTrendingSearch = dynamic(
+//   () => import("../../../components/apps/appsTrendingSearch"),
+//   { ssr: false }
+// );
+// const GamesTrendingSearch = dynamic(
+//   () => import("../../../components/apps/gamesTrendingSearch"),
+//   { ssr: false }
+// );
 
 const tabsData = [
   {
@@ -49,6 +63,13 @@ const tabsData = [
 const TopCharts = () => {
   const [activeKey, setActiveKey] = useState("All");
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      //
+      console.log("Client-side code");
+    }
+  }, []);
+
   return (
     <>
       <section className={styles.TopCharts}>
@@ -56,8 +77,6 @@ const TopCharts = () => {
           <h2>Top Charts</h2>
           <Tabs
             activeKey={activeKey}
-            // defaultActiveKey="All"
-            // id="uncontrolled-tab-example"
             className={styles.tabs}
             onSelect={(k) => setActiveKey(k)}
           >
@@ -67,15 +86,17 @@ const TopCharts = () => {
                 onSelect={(k) => setActiveKey(k)}
                 key={index}
                 eventKey={data.eventKey}
-                // disabled={data.disabled}
                 className={styles.tab}
                 title={
                   <div className="d-flex align-items-center">
-                    {/* <img src={data.img} alt={data.alt} /> */}
-                    {data.id !== 1 && <img src={data.img} alt={data.alt} />}
-                    {/* {!(activeKey === data.eventKey) && data.activeimg && (
-                      <img src={data.activeimg} alt={data.alt} />
-                    )} */}
+                    {data.id !== 1 && (
+                      <Image
+                        width={20}
+                        height={20}
+                        src={data.img}
+                        alt={data.alt}
+                      />
+                    )}
                     <p>{data.title}</p>
                   </div>
                 }

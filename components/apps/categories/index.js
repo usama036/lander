@@ -6,6 +6,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 // Sample data
 const apps = [
@@ -226,10 +227,12 @@ const Categories = () => {
           <Row className={styles.row}>
             <Col md={12} lg={4} xl={4} className={styles.colLeft}>
               <div className={styles.Categories}>
-                <img
+                <Image
                   src={imageSrc}
                   alt="Categories"
-                  style={{ width: "20px", height: "20px" }}
+                  width={20}
+                  height={20}
+                  // style={{ width: "20px", height: "20px" }}
                 />
                 <h4>Categories</h4>
               </div>
@@ -243,10 +246,12 @@ const Categories = () => {
                     >
                       {categories.map((items, index) => (
                         <div className={styles.categoriesWrap} key={index}>
-                          <img
+                          <Image
                             src={items.img}
                             alt={items.alt}
-                            style={{ width: "30px", height: "30px" }}
+                            width={30}
+                            height={30}
+                            // style={{ width: "30px", height: "30px" }}
                           />
                           <h4>
                             {isDesktopScreen
@@ -259,6 +264,7 @@ const Categories = () => {
                   </>
                 ) : (
                   <>
+                    {/* Desktop  */}
                     <div className={styles.categoriesData}>
                       <Row className={styles.categoriesRow}>
                         {categories.map((items, index) => (
@@ -268,10 +274,12 @@ const Categories = () => {
                             className={`${styles.categories}`}
                           >
                             <div className={styles.categoriesWrap}>
-                              <img
+                              <Image
                                 src={items.img}
                                 alt={items.alt}
-                                style={{ width: "30px", height: "30px" }}
+                                width={30}
+                                height={30}
+                                // style={{ width: "30px", height: "30px" }}
                               />
                               <h4>
                                 {isDesktopScreen
@@ -296,10 +304,12 @@ const Categories = () => {
                   <div key={e}>
                     <div className={styles.appsData}>
                       <div className={styles.data}>
-                        <img
+                        <Image
                           src={app.icon}
                           alt="rating"
-                          style={{ width: "120px", height: "120px" }}
+                          width={120}
+                          height={120}
+                          // style={{ width: "120px", height: "120px" }}
                         />
                         <div className={styles.textWrap}>
                           <h5>
@@ -308,39 +318,47 @@ const Categories = () => {
                               : app.name}
                           </h5>
                           <div>
-                            <img
+                            <Image
                               src={app.orange}
                               alt="orange"
+                              width={18}
+                              height={18}
                               style={{
-                                width: "18px",
-                                height: "18px",
+                                // width: "18px",
+                                // height: "18px",
                                 marginRight: "2px",
                               }}
                             />
-                            <img
+                            <Image
                               src={app.orange}
                               alt="orange"
+                              width={18}
+                              height={18}
                               style={{
-                                width: "18px",
-                                height: "18px",
+                                // width: "18px",
+                                // height: "18px",
                                 marginRight: "2px",
                               }}
                             />
-                            <img
+                            <Image
                               src={app.orange}
                               alt="orange"
+                              width={18}
+                              height={18}
                               style={{
-                                width: "18px",
-                                height: "18px",
+                                // width: "18px",
+                                // height: "18px",
                                 marginRight: "2px",
                               }}
                             />
-                            <img
+                            <Image
                               src={app.gray}
                               alt="gray"
+                              width={18}
+                              height={18}
                               style={{
-                                width: "18px",
-                                height: "18px",
+                                // width: "18px",
+                                // height: "18px",
                                 marginRight: "2px",
                               }}
                             />
@@ -351,12 +369,14 @@ const Categories = () => {
                       </div>
                       <div className={styles.buttonWrap}>
                         <Button variant="none" className={styles.button}>
-                          <img
+                          <Image
                             src="/assets/download-btn.svg"
                             alt="download"
+                            width={15}
+                            height={15}
                             style={{
-                              width: "15px",
-                              height: "15px",
+                              // width: "15px",
+                              // height: "15px",
                               marginRight: "10px",
                             }}
                           />{" "}

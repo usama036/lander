@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const appData = [
   {
@@ -159,11 +160,13 @@ const AppsTrending = () => {
           <div className="position-relative">
             <Slider ref={sliderRef} {...settings} className={styles.slider}>
               {appData.map((app, index) => (
-                <Link href="/homedetails">
-                  <div key={index}>
-                    <img
+                <Link href="/homedetails" key={index}>
+                  <div>
+                    <Image
                       src={app.imgSrc}
                       alt={app.altText}
+                      width={93}
+                      height={93}
                       className={styles.appImg}
                     />
                     <p>{truncateText(app.name, 15)}</p>
