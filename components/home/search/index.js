@@ -14,7 +14,7 @@ const SearchComponent = ({ post }) => {
           <Row>
             {post?.map((data, index) => (
               <Col
-                className="col-xs-12 col-sm-12 col-md-6 col-lg-6"
+                className="col-xs-12 col-sm-12 col-md-3 col-lg-3"
                 key={index}
               >
                 <div className={styles.card}>

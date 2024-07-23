@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Container, Row, Col, Card, Button, Pagination } from 'react-bootstrap';
 import Link from 'next/link';
+import ReactStars from 'react-rating-stars-component';
 
 // Sample data
 const apps1 = [
@@ -168,11 +169,11 @@ const Categories = ({categories,type}) => {
     try {
       let url
       if (type === "Games") {
-        url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Games`
+        url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Games`
       }else if(type === "Apps"){
-        url = `http://localhost:1337/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Apps`
+        url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=${page}&pagination[pageSize]=${pageSize}&populate=category&filters[category][PageCategory][$eq]=Apps`
       }else{
-        url = ` http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][slug][$eq]=${type}`
+        url = ` ${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][slug][$eq]=${type}`
       }
       const response = await fetch(url);
       const data = await response.json();
@@ -254,7 +255,7 @@ const Categories = ({categories,type}) => {
   const isDesktopScreen = windowWidth > 991;
 
   const heading =
-    location.pathname === "/apps" ? "Newest Games" : "Newest Apps";
+    type === "Games" ? "Newest Games" : "Newest Apps";
   const handleCategoryClick= (slug) =>{
    fetchApps(currentPage, cardsPerPage,slug)
   }
@@ -285,7 +286,7 @@ const Categories = ({categories,type}) => {
                       {categories.map((items, index) => (
                         <div className={styles.categoriesWrap} key={index} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} >
                           <img
-                            src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}
+                            src={`${process.env.NEXT_PUBLIC_API_URL}${items.attributes.image.data.attributes.url}`}
                             alt={items.attributes.name}
                             style={{ width: "30px", height: "30px" }}
                           />
@@ -310,7 +311,7 @@ const Categories = ({categories,type}) => {
                           >
                             <div className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
                               <img
-                                   src={`http://localhost:1337${items.attributes.image.data.attributes.url}`}
+                                   src={`${process.env.NEXT_PUBLIC_API_URL}${items.attributes.image.data.attributes.url}`}
                                    alt={items.attributes.name}
                                 style={{ width: "30px", height: "30px" }}
                               />
@@ -355,44 +356,17 @@ const Categories = ({categories,type}) => {
                               ? truncateText(app.attributes.title, 10)
                               : app.attributes.title}
                           </h5>
-                          <div>
-                            <img
-                              src={apps1[0].orange}
-                              alt="orange"
-                              style={{
-                                width: "18px",
-                                height: "18px",
-                                marginRight: "2px",
-                              }}
+                          <div style={{ display: 'inline-flex', alignItems: 'center', marginBottom:"auto" ,}}>
+                            <ReactStars
+                              count={5}
+                              value={app.attributes.rating}
+                              size={13}  // Adjust the size to make it smaller
+                              activeColor="#FFA500"
+                              color="#e4e5e9"
+                              edit={false}
+                              style={{ marginRight: '5px' }} // Add inline styles directly here
                             />
-                            <img
-                              src={apps1[e].orange}
-                              alt="orange"
-                              style={{
-                                width: "18px",
-                                height: "18px",
-                                marginRight: "2px",
-                              }}
-                            />
-                            <img
-                              src={apps1[0].orange}
-                              alt="orange"
-                              style={{
-                                width: "18px",
-                                height: "18px",
-                                marginRight: "2px",
-                              }}
-                            />
-                            <img
-                              src={apps1[0].gray}
-                              alt="gray"
-                              style={{
-                                width: "18px",
-                                height: "18px",
-                                marginRight: "2px",
-                              }}
-                            />
-                            <span>{app.attributes.rating}</span>
+                            <span style={{ fontSize: '13px', marginLeft: '10px',marginBottom:'32px' }}>{app.attributes.rating}</span>
                           </div>
                           <p>{app.attributes.size}</p>
                         </div>
@@ -401,7 +375,7 @@ const Categories = ({categories,type}) => {
 
 
                       <Link href={{
-                        pathname: '/search',
+                        pathname: '/homedetails',
                         query: {
                           name: app.attributes.slug,
                         }
@@ -422,11 +396,6 @@ const Categories = ({categories,type}) => {
                       </div>
                       </Link>
                     </div>
-
-
-
-
-
                   </div>
                 ))}
 

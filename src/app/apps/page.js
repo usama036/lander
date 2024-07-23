@@ -71,9 +71,11 @@ const GET_PAGE_DATA = gql`
 const Apps = async () => {
     const { data } = await client.query({ query: GET_DATA });
     const  pageData  = await client.query({ query: GET_PAGE_DATA });
+    console.log('pageData.data.blogPosts.data',pageData);
     return (
     <>
         <PopularApps pageData={pageData.data.blogPosts.data}  />
+        {    console.log('pageData.data.blogPosts.data',pageData.data.blogPosts.data)}
       <Categories categories={data.blogCategories.data} type={'Apps'}/>      {/* <TopCharts /> */}
     </>
   );

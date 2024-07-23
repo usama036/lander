@@ -9,7 +9,6 @@ import Link from "next/link";
 
 
 const PopularApps = ({pageData}) => {
-  console.log('pageData',pageData);
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -109,7 +108,7 @@ const PopularApps = ({pageData}) => {
                 }} >
                   <div key={index} className={styles.appCard}>
                     <img
-                      src={`http://localhost:1337${app?.attributes?.featuredImage?.data?.attributes?.url}`}
+                      src={`${process.env.NEXT_PUBLIC_API_URL}${app?.attributes?.featuredImage?.data?.attributes?.url}`}
                       alt={app?.attributes?.title}
                       className={styles.appImg}
                     />

@@ -8,13 +8,15 @@ import { Button, Container } from "react-bootstrap";
 import PopularApps from "../../../components/apps/PopularApps";
 // import Categories from "../../../components/apps/categories";
 import AppsTrendingSearch from "../../../components/apps/appsTrendingSearch";
+import TopicsTrendingSearch from "../../../components/apps/appsTrendingSearch/index2";
 import GamesTrendingSearch from "../../../components/apps/gamesTrendingSearch";
+import { useRouter } from 'next/navigation'
 
 
 
-
-const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
+const TopCharts =  ({pageAppData,pageGameData,apps,games,topics}) => {
   const [activeKey, setActiveKey] = useState("All");
+  const router = useRouter()
 
   const tabsData = [
     {
@@ -46,7 +48,7 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
       // activeimg: "/assets/book-saved-green.svg",
       title: "Topics",
       eventKey: "Topics",
-      component: <AppsTrendingSearch   apps={apps} />,
+      component: <TopicsTrendingSearch   apps={topics} />,
       // disabled: true,
     },
   ];
@@ -64,29 +66,32 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games}) => {
           >
             {tabsData.map((data, index) => (
               <Tab
-                activeKey={activeKey}
-                onSelect={(k) => setActiveKey(k)}
-                key={index}
-                eventKey={data.eventKey}
-                // disabled={data.disabled}
-                className={styles.tab}
-                title={
-                  <div className="d-flex align-items-center">
-                    {/* <img src={data.img} alt={data.alt} /> */}
-                    {data.id !== 1 && <img src={data.img} alt={data.alt} />}
-                    {/* {!(activeKey === data.eventKey) && data.activeimg && (
+              activeKey={activeKey}
+            onSelect={(k) => {
+              console.log(k);
+              setActiveKey(k)
+            }}
+            key={index}
+            eventKey={data.eventKey}
+            // disabled={data.disabled}
+            className={styles.tab}
+            title={
+              <div className="d-flex align-items-center">
+                {/* <img src={data.img} alt={data.alt} /> */}
+                {data.id !== 1 && <img src={data.img} alt={data.alt} />}
+                {/* {!(activeKey === data.eventKey) && data.activeimg && (
                       <img src={data.activeimg} alt={data.alt} />
                     )} */}
-                    <p>{data.title}</p>
-                  </div>
-                }
-              >
-                {data.eventKey === "All" && <AppsTrendingSearch apps={apps}/>}
-                {data.eventKey === "All" && <GamesTrendingSearch games={games}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageAppData}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageGameData} />}
-                <div className={styles.tabs}>{data.component}</div>
-              </Tab>
+                <p> {data.title}</p>
+              </div>
+            }
+          >
+            {data.eventKey === "All" && <AppsTrendingSearch apps={apps}/>}
+            {data.eventKey === "All" && <GamesTrendingSearch games={games}/>}
+            {data.eventKey === "All" && <PopularApps pageData={pageAppData}/>}
+            {data.eventKey === "All" && <PopularApps pageData={pageGameData} />}
+            <div className={styles.tabs}>{data.component}</div>
+          </Tab>
             ))}
           </Tabs>
         </Container>

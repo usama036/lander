@@ -1,6 +1,5 @@
 export   async function fetchPost() {
   let urlString =window !== undefined && window.location.search;
-console.log(window.location.search);
   let cleanedString = urlString.replace(/^\?name=/, '');
 
   try {

@@ -10,7 +10,6 @@ const SearchComponent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-
     fetchPost().then(res => {
       setPost(res);
     }).catch(err => {

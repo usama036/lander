@@ -2,10 +2,11 @@ import { Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
 
-const SideCard = ({post}) => {
+const SideCard = ({post,type}) => {
 
   const similarGames = []
-  post?.attributes?.similar_Apps?.data?.map((app) =>
+  console.log('post',post);
+  post?.data?.map((app) =>
     similarGames.push({
 
     title:app?.attributes?.title,
@@ -22,7 +23,7 @@ const SideCard = ({post}) => {
       <section className={styles.SideCard}>
         <div className="similar-games">
           <div className="d-flex align-items-center justify-content-between mb-3">
-            <h3>Similar {post?.attributes?.category?.data?.attributes?.PageCategory} </h3>
+            <h3>Popular {type} </h3>
             <Link href="/">
               <i className="fas fa-arrow-right"></i>
             </Link>

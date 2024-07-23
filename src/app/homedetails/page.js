@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 const HomeDetails = ({searchParams}) => {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
+  const [apps, setApps] = useState(null);
+  const [games, setGames] = useState(null);
 
   useEffect(() => {
     async function fetchPost() {
@@ -17,10 +19,20 @@ const HomeDetails = ({searchParams}) => {
 
       let cleanedString = urlString.replace(/^\?name=/, '');
 
-      try {const url = `http://localhost:1337/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category&populate=similar_Apps`
+      try {
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
         const response = await fetch(url);
         const { data } = await response.json();
           setPost(data[0]); // Assuming you want the first post if there are multiple
+
+        const appsResponse = await fetch('http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true');
+        const appsData = await appsResponse.json();
+        setApps(appsData);
+
+        // Fetch Games data
+        const gamesResponse = await fetch('http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Games&filters[isSideCardShow][$eq]=true');
+        const gamesData = await gamesResponse.json();
+        setGames(gamesData);
 
       } catch (err) {
         setError({ error: 'Failed to fetch data' });
@@ -44,8 +56,8 @@ const HomeDetails = ({searchParams}) => {
           </Col>
           <Col className="col-md-4 col-lg-3">
             <div className="Advertisement">Advertisement</div>
-            <SideCard />
-            <SideCard post={post} />
+            <SideCard post={games} type='Games' />
+            <SideCard post={apps} type='Apps' />
           </Col>
         </Row>
       </Container>

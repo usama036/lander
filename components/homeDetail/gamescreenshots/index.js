@@ -19,10 +19,7 @@ const GameScreenshots = ({post}) => {
           img:post?.attributes?.Image01 ,
           alt: post?.attributes?.title,
         },
-        {
-          img: post?.attributes?.Image02 ,
-          alt: post?.attributes?.title,
-        },
+
         {
           img: post?.attributes?.Image03,
           alt: post?.attributes?.title,
@@ -121,15 +118,14 @@ const GameScreenshots = ({post}) => {
                 {...settings}
               >
                 {item.data.map((items, e) => (
-                  <Link href="/homedetails">
                     <div key={e}>
                       <img
                         src={items.img}
-                        alt={items.alt}
+                        alt=''
                         className={styles.appImg}
                       />
                     </div>
-                  </Link>
+
                 ))}
               </Slider>
               <div className={styles.navigation}>
