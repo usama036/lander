@@ -85,8 +85,8 @@ const TopCharts =  ({pageAppData,pageGameData,apps,games,topics}) => {
               >
                 {data.eventKey === "All" && <AppsTrendingSearch apps={apps}/>}
                 {data.eventKey === "All" && <GamesTrendingSearch games={games}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageAppData}/>}
-                {data.eventKey === "All" && <PopularApps pageData={pageGameData} />}
+                {data.eventKey === "All" && <PopularApps pageData={pageAppData} type={'Apps'}/>}
+                {data.eventKey === "All" && <PopularApps pageData={pageGameData} type={'Games'} />}
                 <div className={styles.tabs}>{data.component}</div>
               </Tab>
             ))}

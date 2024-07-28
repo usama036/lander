@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 
-const PopularApps = ({pageData}) => {
+const PopularApps = ({pageData,type}) => {
   const sliderRef = React.useRef(null);
 
   const settings = {
@@ -87,9 +87,9 @@ const PopularApps = ({pageData}) => {
           <div className={styles.row}>
             <div>
               <h2>
-                Popular<span> Apps</span>
+                Popular<span> {type}</span>
               </h2>
-              <p>Popular apps</p>
+              <p>Popular {type}</p>
             </div>
             <div>
               {" "}
