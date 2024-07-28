@@ -25,7 +25,7 @@ const GameScreenshots = ({post}) => {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12} className={styles.col}>
                 <div className={styles.colWrap}>
-                  <Image width={93} height={93} src={post?.attributes?.Applogo} alt="pubg" />
+                  <Image width={93} height={93} src={post?.attributes?.Applogo} alt="pubg" unoptimized/>
                   <div className={styles.dataWrap}>
                     <h3>{post?.attributes?.title}</h3>
                     <div className="d-flex align-items-center">

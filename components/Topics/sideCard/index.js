@@ -6,7 +6,6 @@ import Image from "next/image";
 const SideCard = ({post,type}) => {
 
   const similarGames = []
-  console.log('post',post);
   post?.data?.map((app) =>
     similarGames.push({
 
@@ -32,6 +31,7 @@ const SideCard = ({post,type}) => {
           <ul>
             {similarGames.map((game, index) => (
               <Link
+                key={index}
                 href={{
                   pathname: '/homedetails',
                   query: {
@@ -46,6 +46,7 @@ const SideCard = ({post,type}) => {
                   className="me-3"
                   width={64}
                   height={64}
+                  unoptimized
                 />
                 <div>
                   <h5 className="mb-0">{game.title}</h5>

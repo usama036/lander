@@ -21,8 +21,9 @@ const SearchComponent = ({ post }) => {
                 <div className={styles.card}>
                   <div className={styles.cardBody}>
                    <Image
-                    width={377}
-                    height={225} alt="img" src={data?.attributes?.Applogo} />
+                    width={200}
+                    height={200} alt="img" src={data?.attributes?.Applogo}
+                   unoptimized/>
                     <h3 className={styles.cardTitle}>{data?.attributes?.title}</h3>
                     {/*<p className={styles.cardText}>{data.description}</p>*/}
                     <Link href={{

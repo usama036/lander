@@ -155,7 +155,6 @@ const Categories = ({categories,type}) => {
     ],
   };
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" }); // Use media query
-  const currentPath = window.location.pathname;
   const timestamp = Date.now();
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -241,15 +240,15 @@ const Categories = ({categories,type}) => {
     );
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(typeof window!== 'undefined' && window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(typeof window!== 'undefined' && window.innerWidth);
     };
-    window.addEventListener("resize", handleResize);
+    typeof window!== 'undefined' &&  window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      typeof window!== 'undefined' && window.removeEventListener("resize", handleResize);
     };
   }, []);
   const isMobScreen = windowWidth < 1024;
