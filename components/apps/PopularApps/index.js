@@ -108,7 +108,7 @@ const PopularApps = ({pageData}) => {
                 }} >
                   <div key={index} className={styles.appCard}>
                     <img
-                      src={`${process.env.NEXT_PUBLIC_API_URL}${app?.attributes?.featuredImage?.data?.attributes?.url}`}
+                      src={app?.attributes?.featuredImage?.data?.attributes?.url}
                       alt={app?.attributes?.title}
                       className={styles.appImg}
                     />

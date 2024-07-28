@@ -16,20 +16,20 @@ const GameScreenshots = ({post}) => {
       title: `${post?.attributes?.title}'s Screenshots`,
       data: [
         {
-          img:post?.attributes?.Image01 ,
+          img:`${post?.attributes?.Image01}.jpg` ,
           alt: post?.attributes?.title,
         },
 
         {
-          img: post?.attributes?.Image03,
+          img: `${post?.attributes?.Image03}.jpg`,
           alt: post?.attributes?.title,
         },
         {
-          img: post?.attributes?.Image04,
+          img: `${post?.attributes?.Image04}.jpg` ,
           alt: post?.attributes?.title,
         },
         {
-          img: post?.attributes?.Image05,
+          img: `${post?.attributes?.Image05}.jpg` ,
           alt: post?.attributes?.title,
         },
       ],

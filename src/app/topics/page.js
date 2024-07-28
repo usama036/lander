@@ -14,12 +14,12 @@ const Topics = () => {
 
       try {
 
-        const appsResponse = await fetch('http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true');
+        const appsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true`);
         const appsData = await appsResponse.json();
         setApps(appsData);
 
         // Fetch Games data
-        const gamesResponse = await fetch('http://localhost:1337/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Games&filters[isSideCardShow][$eq]=true');
+        const gamesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Games&filters[isSideCardShow][$eq]=true`);
         const gamesData = await gamesResponse.json();
         setGames(gamesData);
 

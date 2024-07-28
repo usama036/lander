@@ -50,7 +50,7 @@ const Topics = ({ pageData }) => {
         <CardComponent
           title={card?.attributes?.title}
           description={card?.attributes?.description}
-          imageUrl={`${process.env.NEXT_PUBLIC_API_URL}${card?.attributes?.image?.data[0]?.attributes?.url}`}
+          imageUrl={card?.attributes?.image?.data[0]?.attributes?.url}
         />
       </Col>
     ));

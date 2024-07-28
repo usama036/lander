@@ -3,7 +3,7 @@ export   async function fetchPost() {
   let cleanedString = urlString.replace(/^\?name=/, '');
 
   try {
-    const url = `http://localhost:1337/api/blog-posts?filters[slug][$containsi]=${cleanedString}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$containsi]=${cleanedString}`;
     const response = await fetch(url);
     const { data } = await response.json();
     // Assuming you want the first post if there are multiple

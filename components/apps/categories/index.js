@@ -286,7 +286,7 @@ const Categories = ({categories,type}) => {
                       {categories.map((items, index) => (
                         <div className={styles.categoriesWrap} key={index} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} >
                           <img
-                            src={`${process.env.NEXT_PUBLIC_API_URL}${items.attributes.image.data.attributes.url}`}
+                            src={items.attributes.image.data.attributes.url}
                             alt={items.attributes.name}
                             style={{ width: "30px", height: "30px" }}
                           />
@@ -311,7 +311,7 @@ const Categories = ({categories,type}) => {
                           >
                             <div className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
                               <img
-                                   src={`${process.env.NEXT_PUBLIC_API_URL}${items.attributes.image.data.attributes.url}`}
+                                   src={items.attributes.image.data.attributes.url}
                                    alt={items.attributes.name}
                                 style={{ width: "30px", height: "30px" }}
                               />

@@ -47,6 +47,8 @@ const GET_PAGE_DATA = gql`
                     slug
                     Applogo
                     subtitle
+                   
+                 
                     featuredImage{
                         data{
                             attributes{
