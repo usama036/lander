@@ -1,6 +1,7 @@
 import { Row, Col, Container, Button } from "react-bootstrap";
 import Link from "next/link";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 const GameScreenshots = ({post}) => {
   const GameScreenshotsData = [
@@ -24,14 +25,24 @@ const GameScreenshots = ({post}) => {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12} className={styles.col}>
                 <div className={styles.colWrap}>
-                  <img src={post?.attributes?.Applogo} className={styles.img} alt="pubg" />
+                  <Image width={93} height={93} src={post?.attributes?.Applogo} alt="pubg" />
                   <div className={styles.dataWrap}>
                     <h3>{post?.attributes?.title}</h3>
                     <div className="d-flex align-items-center">
-                      <img src='/assets/orange-star.svg' alt="profile" />
+                      <Image
+                        src='/assets/orange-star.svg'
+                        width={10}
+                        height={10}
+                        alt="profile"
+                      />
                       <span className={styles.starRate}> {post?.attributes?.rating}</span>
                       <div className={styles.review}>
-                        <img src='/assets/profile.svg' alt="profile" />
+                        <Image
+                          width={10}
+                          height={10}
+                          src='/assets/profile.svg'
+                          alt="profile"
+                        />
                         <span>27.5k</span>
                       </div>
                     </div>

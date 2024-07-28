@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 
 
@@ -40,33 +41,19 @@ const GameScreenshots = ({post}) => {
     slidesToShow: 2.25,
     slidesToScroll: 1,
     arrows: false,
-    centerPadding: "0", // No padding to make it seamless
+    centerPadding: "0",
     dots: false,
     autoplay: false,
     swipeToSlide: true,
     cssEase: "linear",
     autoplaySpeed: 2500,
     responsive: [
-      //   {
-      //     breakpoint: 1660,
-      //     settings: {
-      //       slidesToShow: 3,
-      //       slidesToScroll: 1,
-      //       infinite: true,
-      //     },
-      //   },
       {
         breakpoint: 1440,
         settings: {
           slidesToShow: 2.25,
         },
       },
-      // {
-      //   breakpoint: 1280,
-      //   settings: {
-      //     slidesToShow: 2.5,
-      //   },
-      // },
       {
         breakpoint: 1024,
         settings: {
@@ -119,10 +106,13 @@ const GameScreenshots = ({post}) => {
               >
                 {item.data.map((items, e) => (
                     <div key={e}>
-                      <img
+                      <Image
+                        width={320}
+                        height={180}
                         src={items.img}
-                        alt=''
+                        alt={items.alt || ''}
                         className={styles.appImg}
+                        unoptimized
                       />
                     </div>
 

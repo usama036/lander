@@ -126,16 +126,12 @@
       }
       // Slider
       .colSlider {
-        // float: right;
-        // align-items: center;
-        // display: flex;
-        // justify-content: flex-end;
         .slider {
           .sliderWrap {
             position: relative;
             .bgImg {
               // max-height: 584px;
-              width: 100%;
+              // width: 100%;
               object-fit: cover;
               box-shadow: rgb(233 9 9 / 25%) 0px -120px 76px -29px inset;
             }
@@ -149,8 +145,8 @@
               .imgwrap {
                 display: flex;
                 img {
-                  width: 60px;
-                  height: 60px;
+                  // width: 60px;
+                  // height: 60px;
                   margin-top: 5px;
                   margin-left: 25px;
                   margin-right: 25px;
@@ -243,7 +239,7 @@
   position: relative;
   .slickArrowPrev {
     position: absolute;
-    top: 400px;
+    top: 290px;
     left: 5%;
     background: rgb(255 255 255 / 31%);
     width: 50px;
@@ -276,7 +272,7 @@
   }
   .slickArrowNext {
     position: absolute;
-    top: 400px;
+    top: 290px;
     right: 5%;
     background: rgb(255 255 255 / 31%);
     width: 50px;

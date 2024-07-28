@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const SideCard = ({post,type}) => {
 
@@ -39,11 +40,12 @@ const SideCard = ({post,type}) => {
                 }}
               >
               <li key={index} className="d-flex mb-3">
-                <img
+                <Image
                   src={game.imageUrl}
                   alt={game.title}
                   className="me-3"
-                  style={{ width: "64px", height: "64px" }}
+                  width={64}
+                  height={64}
                 />
                 <div>
                   <h5 className="mb-0">{game.title}</h5>

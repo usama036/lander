@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 import { Container, Row, Col, Card, Button, Pagination } from 'react-bootstrap';
 import Link from 'next/link';
 import ReactStars from 'react-rating-stars-component';
@@ -268,10 +269,12 @@ const Categories = ({categories,type}) => {
           <Row className={styles.row}>
             <Col md={12} lg={4} xl={4} className={styles.colLeft}>
               <div className={styles.Categories}>
-                <img
+                 <Image
                   src="/assets/Categories.svg"
                   alt="Categories"
-                  style={{ width: "20px", height: "20px" }}
+                  width={20}
+                  height={20}
+                  // style={{ width: "20px", height: "20px" }}
                 />
                 <h4>Categories</h4>
               </div>
@@ -284,11 +287,14 @@ const Categories = ({categories,type}) => {
                       className={styles.MobSlider}
                     >
                       {categories.map((items, index) => (
-                        <div className={styles.categoriesWrap} key={index} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} >
-                          <img
+                        <div className={styles.categoriesWrap} key={index}>
+                          <Image
                             src={items.attributes.image.data.attributes.url}
                             alt={items.attributes.name}
-                            style={{ width: "30px", height: "30px" }}
+                            width={30}
+                            height={30}
+                            unoptimized
+                            // style={{ width: "30px", height: "30px" }}
                           />
                           <h4>
                             {isDesktopScreen
@@ -310,10 +316,12 @@ const Categories = ({categories,type}) => {
                             className={`${styles.categories}`}
                           >
                             <div className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
-                              <img
+                              <Image
                                    src={items.attributes.image.data.attributes.url}
                                    alt={items.attributes.name}
-                                style={{ width: "30px", height: "30px" }}
+                                   width={30}
+                                   height={30}
+                                   unoptimized
                               />
                               <h4>
                                 {isDesktopScreen
@@ -345,11 +353,11 @@ const Categories = ({categories,type}) => {
                         }
                       }} >
                       <div className={styles.data}>
-                        <img
+                        <Image
                           src={app.attributes.Applogo}
                           alt="rating"
-                          style={{ width: "120px", height: "120px" }}
-                        />
+                          width={120}
+                          height={120}    unoptimized                    />
                         <div className={styles.textWrap}>
                           <h5>
                             {isMobScreen
@@ -382,12 +390,14 @@ const Categories = ({categories,type}) => {
                       }} >
                       <div className={styles.buttonWrap}>
                         <Button variant="none" className={styles.button}>
-                          <img
+                          <Image
                             src="/assets/download-btn.svg"
                             alt="download"
+                            width={15}
+                            height={15}
                             style={{
-                              width: "15px",
-                              height: "15px",
+                              // width: "15px",
+                              // height: "15px",
                               marginRight: "10px",
                             }}
                           />{" "}

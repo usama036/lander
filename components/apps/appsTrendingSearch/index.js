@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import { gql } from '@apollo/client';
 import client from '../../../apollo-client';
+import Image from "next/image";
 
 const appData = [
   {
@@ -140,6 +141,7 @@ const AppsTrending = ({apps}) => {
             <Slider ref={sliderRef} {...settings} className={styles.slider}>
               {apps.map((app, index) => (
                 <Link
+                  key={index}
                   href={{
                     pathname: '/homedetails',
                     query: {
@@ -147,11 +149,14 @@ const AppsTrending = ({apps}) => {
                     }
                   }}
                 >
-                  <div key={index}>
-                    <img
+                  <div >
+                    <Image
                       src={app.attributes.Applogo}
                       alt={app.attributes.title}
                       className={styles.appImg}
+                      width={93}
+                      height={93}
+                      unoptimized
                     />
                     <p>{truncateText(app.attributes.title, 15)}</p>
                   </div>

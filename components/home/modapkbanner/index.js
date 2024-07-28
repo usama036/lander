@@ -6,6 +6,7 @@ import { Row, Col, Container, Form, InputGroup, Button, Alert } from 'react-boot
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 
 const modapkData = [
@@ -85,7 +86,6 @@ const Modapkbanner = () => {
     slidesToScroll: 1,
     arrows: false,
     dots: true,
-    // initialSlide: 2,
     centerMode: true, // Center the active slide
     centerPadding: "0", // No padding to make it seamless
     lazyLoad: true,
@@ -162,34 +162,47 @@ const Modapkbanner = () => {
                         className={styles.slickArrowPrev}
                         onClick={sliderPrev}
                       >
-                        <img
-                          // className={styles.sliderPrev}
+                        <Image
+                          height={30}
+                          width={30}
                           src="/assets/arrow-icon.svg"
                           alt="leftArrow"
-                          placeholder="leftArrow"
                         />
                       </div>
                       <div
                         className={styles.slickArrowNext}
                         onClick={sliderNext}
                       >
-                        <img
-                          // className={styles.sliderNext}
+                        <Image
+                          height={30}
+                          width={30}
                           src="/assets/arrow-icon.svg"
                           alt="rightArrow"
-                          placeholder="rightArrow"
                         />
                       </div>
                     </div>
                     <div>
-                      <img
+                      <Image
+                        width={700}
+                        height={584}
                         className={styles.bgImg}
                         src={data.img}
                         alt={data.alt}
+                        // sizes="(width: 100%)"
+                        style={{
+                          width: "100%",
+                          objectFit: "cover",
+                          // maxHeight: "584px",
+                        }}
                       />
                       <div className={styles.dataWrap}>
                         <div className={styles.imgwrap}>
-                          <img src={data.sideImg} alt={data.imgAlt} />
+                          <Image
+                            height={60}
+                            width={60}
+                            src={data.sideImg}
+                            alt={data.imgAlt}
+                          />
                           <h2>{data.title}</h2>
                         </div>
                         <div className={styles.btnwrap}>

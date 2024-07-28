@@ -1,6 +1,7 @@
 import { Row, Col, Container, Button } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const Versions = ({post}) => {
   const explopreData = [
@@ -39,12 +40,14 @@ const Versions = ({post}) => {
                         variant="none"
                         className={`${styles.btn1}`}
                       >
-                        <img
+                        <Image
                           src="/assets/download-btn.svg"
                           alt="download"
+                          height={15}
+                          width={15}
                           style={{
-                            width: "15px",
-                            height: "15px",
+                            // width: "15px",
+                            // height: "15px",
                             marginRight: "10px",
                           }}
                         />

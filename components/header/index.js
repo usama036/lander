@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -42,9 +43,11 @@ const Header = () => {
         <Container>
           <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
           <Link href="/">
-            <img
+            <Image
+              width={155}
+              height={41}
               src="/assets/logo.svg"
-              className={`d-inline-block align-top ${styles.headerLogo}`}
+              className={`d-inline-block align-top`}
               alt="Logo"
             />
           </Link>
@@ -57,7 +60,9 @@ const Header = () => {
                 // className="search-icon"
                 onClick={toggleDropdown}
               >
-                <img
+                <Image
+                  width={24}
+                  height={24}
                   src="/assets/search.svg"
                   // className={`${styles.search}`}
                   alt="search"
@@ -79,7 +84,9 @@ const Header = () => {
                           name: value,
                         }
                       }} >
-                      <img
+                        <Image
+                          width={93}
+                          height={93}
                         src="/assets/search.svg"
                         className={`${styles.searchMob}`}
                         alt="search"
@@ -102,10 +109,12 @@ const Header = () => {
                 <Link className={`${styles.link}`} href="/apps">
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
-                    <img
+                    <Image
                       src="/assets/apps-logo.svg"
                       className={`${styles.linkLogo}`}
                       alt="apps-logo"
+                      width={24}
+                      height={24}
                     />
                   </span>
                   Apps
@@ -113,10 +122,12 @@ const Header = () => {
                 <Link className={`${styles.link}`} href="/games">
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
-                    <img
+                    <Image
                       src="/assets/gameboy.svg"
                       className={`${styles.linkLogo}`}
                       alt="gameboy"
+                      width={24}
+                      height={24}
                     />
                   </span>
                   Games
@@ -124,25 +135,16 @@ const Header = () => {
                 <Link className={`${styles.link}`} href="/topics">
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
-                    <img
+                    <Image
                       src="/assets/book-saved.svg"
                       className={`${styles.linkLogo}`}
                       alt="book"
+                      width={24}
+                      height={24}
                     />
                   </span>
                   Topics
                 </Link>
-                {/* <Link className={`${styles.link}`} href="/tools">
-                  <span className={`mx-6 ${styles.text}`}>
-                    {" "}
-                    <img
-                      src="/assets/setting.svg"
-                      className={`${styles.linkLogo}`}
-                      alt="settings"
-                    />
-                  </span>
-                  Tools
-                </Link> */}
               </Nav>
             </div>
             <div className={styles.formWrap}>
@@ -162,10 +164,12 @@ const Header = () => {
                       name: value,
                     }
                   }} >
-                  <img
+                  <Image
                     src="/assets/search.svg"
                     className={`${styles.search}`}
                     alt="search"
+                    width={18}
+                    height={18}
                   />
                   </Link>/
                 </InputGroup>
@@ -175,7 +179,6 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* mobile header  */}
       <Offcanvas
         show={show}
         onHide={handleClose}
@@ -186,12 +189,12 @@ const Header = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <Navbar.Brand href="/home">
-              <img
+              <Image
                 src="/assets/logo.svg"
-                width="120"
-                // height="37"
                 className="d-inline-block align-top"
                 alt="Logo"
+                width={135}
+                height={35}
               />
             </Navbar.Brand>
           </Offcanvas.Title>
@@ -201,10 +204,12 @@ const Header = () => {
             <Link className={`mb-4 ${styles.link}`} href="/apps">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
-                <img
+                <Image
                   src="/assets/apps-logo.svg"
                   className={`${styles.linkLogo}`}
                   alt="apps-logo"
+                  width={24}
+                  height={24}
                 />
               </span>
               Apps
@@ -212,10 +217,12 @@ const Header = () => {
             <Link className={`mb-4 ${styles.link}`} href="/games">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
-                <img
+                <Image
                   src="/assets/gameboy.svg"
                   className={`${styles.linkLogo}`}
                   alt="gameboy"
+                  width={24}
+                  height={24}
                 />
               </span>
               Games
@@ -223,25 +230,16 @@ const Header = () => {
             <Link className={`mb-4 ${styles.link}`} href="/topics">
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
-                <img
+                <Image
                   src="/assets/book-saved.svg"
                   className={`${styles.linkLogo}`}
                   alt="book"
+                  width={24}
+                  height={24}
                 />
               </span>
               Topics
             </Link>
-            {/* <Link className={`${styles.link}`} href="/tools">
-              <span className={`mx-6 ${styles.text}`}>
-                {" "}
-                <img
-                  src="/assets/setting.svg"
-                  className={`${styles.linkLogo}`}
-                  alt="settings"
-                />
-              </span>
-              Tools
-            </Link> */}
           </Nav>
         </Offcanvas.Body>
       </Offcanvas>

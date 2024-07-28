@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 
 
@@ -19,7 +20,9 @@ const SearchComponent = ({ post }) => {
               >
                 <div className={styles.card}>
                   <div className={styles.cardBody}>
-                    <img alt="img" src={data?.attributes?.Applogo} />
+                   <Image
+                    width={377}
+                    height={225} alt="img" src={data?.attributes?.Applogo} />
                     <h3 className={styles.cardTitle}>{data?.attributes?.title}</h3>
                     {/*<p className={styles.cardText}>{data.description}</p>*/}
                     <Link href={{
