@@ -70,7 +70,7 @@ const Games = async () => {
     const  pageData  = await client.query({ query: GET_PAGE_DATA });
     return (
     <>
-      <PopularApps pageData={pageData.data.blogPosts.data}  />
+      <PopularApps pageData={pageData.data.blogPosts.data}  type={'Games'}/>
       <Categories categories={data.blogCategories.data} type={'Games'} />
     </>
   );

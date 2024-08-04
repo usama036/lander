@@ -286,7 +286,7 @@ const Categories = ({categories,type}) => {
                       className={styles.MobSlider}
                     >
                       {categories.map((items, index) => (
-                        <div className={styles.categoriesWrap} key={index}>
+                        <Link onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} href={''} className={styles.categoriesWrap} key={index}>
                           <Image
                             src={items.attributes.image.data.attributes.url}
                             alt={items.attributes.name}
@@ -300,7 +300,7 @@ const Categories = ({categories,type}) => {
                               ? truncateText(items.attributes.name, 10)
                               : items.attributes.name}
                           </h4>
-                        </div>
+                        </Link>
                       ))}
                     </Slider>
                   </>
@@ -314,7 +314,7 @@ const Categories = ({categories,type}) => {
                             md={6}
                             className={`${styles.categories}`}
                           >
-                            <div className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}}>
+                            <Link className={styles.categoriesWrap} onClick={()=>{handleCategoryClick(items?.attributes?.slug)}} href={''}>
                               <Image
                                    src={items.attributes.image.data.attributes.url}
                                    alt={items.attributes.name}
@@ -327,7 +327,7 @@ const Categories = ({categories,type}) => {
                                   ? truncateText(items.attributes.name, 10)
                                   : items.attributes.name}
                               </h4>
-                            </div>
+                            </Link>
                           </Col>
                         ))}
                       </Row>

@@ -132,9 +132,12 @@ const AppsTrending = ({apps}) => {
             </div>
             <div>
               {" "}
-              <Button variant="none" type="button" className="seeAllBtn">
-                See All
-              </Button>
+              <Link href='/apps'>
+                <Button variant="none" type="button" className="seeAllBtn">
+                  See All
+                </Button>
+              </Link>
+
             </div>
           </div>
           <div className="position-relative">

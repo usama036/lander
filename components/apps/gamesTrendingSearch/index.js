@@ -138,9 +138,12 @@ const GamesTrending = ({games}) => {
             </div>
             <div>
               {" "}
-              <Button variant="none" type="button" className="seeAllBtn">
-                See All
-              </Button>
+
+              <Link href='/games'>
+                <Button variant="none" type="button" className="seeAllBtn">
+                  See All
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="position-relative">

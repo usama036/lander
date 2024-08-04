@@ -24,7 +24,7 @@ const SideCard = ({post,type}) => {
         <div className="similar-games">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h3>Popular {type} </h3>
-            <Link href="/">
+            <Link href={`/${type?.toLowerCase()}` }>
               <i className="fas fa-arrow-right"></i>
             </Link>
           </div>
@@ -59,11 +59,13 @@ const SideCard = ({post,type}) => {
               </Link>
             ))}
           </ul>
+          <Link href={`/${type?.toLowerCase()}` }>
           <div className="d-flex align-items-center justify-content-center mb-3">
             <Button variant="none" className={`greenButton ${styles.button}`}>
               Explore All Apps
             </Button>
           </div>
+            </Link>
         </div>
       </section>
     </>

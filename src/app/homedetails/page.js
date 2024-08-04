@@ -14,16 +14,9 @@ const HomeDetails = ({searchParams}) => {
   const [games, setGames] = useState(null);
 
   useEffect(() => {
-    async function fetchPost() {
-      let urlString =window !== undefined && window.location.search;
-
-      let cleanedString = urlString.replace(/^\?name=/, '');
-
+    async function fetchSideApps (){
       try {
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
-        const response = await fetch(url);
-        const { data } = await response.json();
-          setPost(data[0]); // Assuming you want the first post if there are multiple
+
 
         const appsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true`);
         const appsData = await appsResponse.json();
@@ -38,9 +31,24 @@ const HomeDetails = ({searchParams}) => {
         setError({ error: 'Failed to fetch data' });
       }
     }
+    fetchSideApps()
+  }, []);
+
+  useEffect(() => {
+    async function fetchPost () {
+      let urlString = typeof window!== 'undefined' && window.location.search;
+      let cleanedString = urlString.replace(/^\?name=/, '');
+
+
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
+    const response = await fetch(url);
+    const { data } = await response.json();
+    setPost(data[0]); // Assuming you want the first post if there are multiple
+
+  }
 
     fetchPost();
-  }, []);
+  }, [typeof window!== 'undefined' && window.location.search]);
   return (
     <>
 
