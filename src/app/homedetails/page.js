@@ -1,71 +1,68 @@
-'use client'
+"use client";
 import { Row, Col, Container } from "react-bootstrap";
 import GameDetails from "../../../components/homeDetail/gameDetails";
 import AboutGame from "../../../components/homeDetail/aboutGame";
 import Versions from "../../../components/homeDetail/versions";
 import GameScreenshots from "../../../components/homeDetail/gamescreenshots";
 import SideCard from "../../../components/Topics/sideCard";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-const HomeDetails = ({searchParams}) => {
+const HomeDetails = ({ searchParams }) => {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
   const [apps, setApps] = useState(null);
   const [games, setGames] = useState(null);
 
   useEffect(() => {
-    async function fetchSideApps (){
+    async function fetchSideApps() {
       try {
-
-
-        const appsResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true`);
+        const appsResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Apps&filters[isSideCardShow][$eq]=true`
+        );
         const appsData = await appsResponse.json();
         setApps(appsData);
 
         // Fetch Games data
-        const gamesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Games&filters[isSideCardShow][$eq]=true`);
+        const gamesResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?pagination[page]=1&pagination[pageSize]=10&populate=category&filters[category][PageCategory][$eq]=Games&filters[isSideCardShow][$eq]=true`
+        );
         const gamesData = await gamesResponse.json();
         setGames(gamesData);
-
       } catch (err) {
-        setError({ error: 'Failed to fetch data' });
+        setError({ error: "Failed to fetch data" });
       }
     }
-    fetchSideApps()
+    fetchSideApps();
   }, []);
 
   useEffect(() => {
-    async function fetchPost () {
-      let urlString = typeof window!== 'undefined' && window.location.search;
-      let cleanedString = urlString.replace(/^\?name=/, '');
+    async function fetchPost() {
+      let urlString = typeof window !== "undefined" && window.location.search;
+      let cleanedString = urlString.replace(/^\?name=/, "");
 
-
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`
-    const response = await fetch(url);
-    const { data } = await response.json();
-    setPost(data[0]); // Assuming you want the first post if there are multiple
-
-  }
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/blog-posts?filters[slug][$eq]=${cleanedString}&populate=category`;
+      const response = await fetch(url);
+      const { data } = await response.json();
+      setPost(data[0]); // Assuming you want the first post if there are multiple
+    }
 
     fetchPost();
-  }, [typeof window!== 'undefined' && window.location.search]);
+  }, [typeof window !== "undefined" && window.location.search]);
   return (
     <>
-
       <Container className="TopicsMain">
-        <Row>
-          <Col className="col-md-8 col-lg-9">
-
+        <Row className="home-Detail-Page-Row">
+          <Col className="col-md-8 col-lg-7 home-Detail-Page-Left-Col">
             {post && <GameDetails post={post} />}
             <div className="Advertisement-Two">Advertisement two</div>
             {post && <AboutGame post={post} />}
-            {post && <Versions  post={post}/>}
-          {post && <GameScreenshots post={post} />}
+            {post && <Versions post={post} />}
+            {post && <GameScreenshots post={post} />}
           </Col>
-          <Col className="col-md-4 col-lg-3">
+          <Col className="col-md-4 col-lg-4">
             <div className="Advertisement">Advertisement</div>
-            <SideCard post={games} type='Games' />
-            <SideCard post={apps} type='Apps' />
+            <SideCard post={games} type="Games" />
+            <SideCard post={apps} type="Apps" />
           </Col>
         </Row>
       </Container>
