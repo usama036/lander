@@ -56,7 +56,7 @@ const GameScreenshots = ({post}) => {
                       <span className={styles.rate}> {post?.attributes?.requirements}  </span>
                       {/*<span className={styles.level}>{post?.attributes?.publisher}</span>*/}
                     </div>
-                    <div>{ new Date(post?.attributes?.publishedOn || '2024-06-20').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                    <div>{ new Date(post?.attributes?.createAt || '2024-06-20').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                     }</div>
                   </div>
                 </div>

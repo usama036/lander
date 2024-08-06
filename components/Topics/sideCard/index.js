@@ -4,9 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 const SideCard = ({post,type}) => {
-
   const similarGames = []
-  post?.data?.map((app) =>
+  post?.map((app) =>
     similarGames.push({
 
     title:app?.attributes?.title,

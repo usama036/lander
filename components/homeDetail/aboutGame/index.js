@@ -20,7 +20,7 @@ const AboutGame = ({post}) => {
       title: " Last Updated",
       img: "/assets/3.svg",
       alt: "app-name",
-      detail: post?.attributes?.publishedOn,
+      detail: new Date(post?.attributes?.createAt || '2024-06-20').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
     },
     {
       title: "Publisher",

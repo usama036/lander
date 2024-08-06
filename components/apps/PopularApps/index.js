@@ -93,9 +93,11 @@ const PopularApps = ({pageData,type}) => {
             </div>
             <div>
               {" "}
+              <Link href={`/${type?.toLowerCase()}`}>
               <Button variant="none" type="button" className="seeAllBtn">
                 See All
               </Button>
+                </Link>
             </div>
           </div>
           <div className="apps-slider">
