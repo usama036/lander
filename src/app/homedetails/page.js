@@ -52,14 +52,14 @@ const HomeDetails = ({ searchParams }) => {
     <>
       <Container className="TopicsMain">
         <Row className="home-Detail-Page-Row">
-          <Col className="col-md-8 col-lg-7 home-Detail-Page-Left-Col">
+          <Col className="col-xs-12 col-sm-12 col-md-7 col-lg-7 home-Detail-Page-Left-Col">
             {post && <GameDetails post={post} />}
             <div className="Advertisement-Two">Advertisement two</div>
             {post && <AboutGame post={post} />}
             {post && <Versions post={post} />}
             {post && <GameScreenshots post={post} />}
           </Col>
-          <Col className="col-md-4 col-lg-4">
+          <Col className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
             <div className="Advertisement">Advertisement</div>
             <SideCard post={games} type="Games" />
             <SideCard post={apps} type="Apps" />

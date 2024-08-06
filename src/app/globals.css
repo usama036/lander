@@ -172,14 +172,17 @@ a {
   border: transparent !important;
 }
 
-.home-Detail-Page-Row {
-  display: flex;
-  justify-content: space-between;
-}
 
-.home-Detail-Page-Left-Col {
-  max-width: 728px !important;
-  width: 100% !important;
+@media (min-width: 1280px) {
+  .home-Detail-Page-Left-Col {
+    max-width: 728px !important;
+    width: 100% !important;
+  }
+
+  .home-Detail-Page-Row {
+    display: flex;
+    gap: 40px;
+  }
 }
 
 
