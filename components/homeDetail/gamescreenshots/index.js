@@ -8,41 +8,47 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import Image from "next/image";
 
-
-
-const GameScreenshots = ({post}) => {
+const GameScreenshots = ({ post }) => {
   const sliderRef = React.useRef(null);
   const appData = [
     {
       title: `${post?.attributes?.title}'s Screenshots`,
       data: [
         // Conditionally include each image object only if the image link is not empty
-        post?.attributes?.Image01 ? {
-          img: `${post.attributes.Image01}.jpg`,
-          alt: post?.attributes?.title,
-        } : null,
+        post?.attributes?.Image01
+          ? {
+              img: `${post.attributes.Image01}.jpg`,
+              alt: post?.attributes?.title,
+            }
+          : null,
 
-        post?.attributes?.Image03 ? {
-          img: `${post.attributes.Image03}.jpg`,
-          alt: post?.attributes?.title,
-        } : null,
+        post?.attributes?.Image03
+          ? {
+              img: `${post.attributes.Image03}.jpg`,
+              alt: post?.attributes?.title,
+            }
+          : null,
 
-        post?.attributes?.Image04 ? {
-          img: `${post.attributes.Image04}.jpg`,
-          alt: post?.attributes?.title,
-        } : null,
+        post?.attributes?.Image04
+          ? {
+              img: `${post.attributes.Image04}.jpg`,
+              alt: post?.attributes?.title,
+            }
+          : null,
 
-        post?.attributes?.Image05 ? {
-          img: `${post.attributes.Image05}.jpg`,
-          alt: post?.attributes?.title,
-        } : null,
+        post?.attributes?.Image05
+          ? {
+              img: `${post.attributes.Image05}.jpg`,
+              alt: post?.attributes?.title,
+            }
+          : null,
       ].filter(Boolean), // Remove any null values from the array
     },
   ];
 
   const settings = {
     infinite: false,
-    slidesToShow: 2.25,
+    slidesToShow: 1.75,
     slidesToScroll: 1,
     arrows: false,
     centerPadding: "0",
@@ -53,21 +59,33 @@ const GameScreenshots = ({post}) => {
     autoplaySpeed: 2500,
     responsive: [
       {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 2.25,
-        },
-      },
-      {
-        breakpoint: 1024,
+        breakpoint: 1600,
         settings: {
           slidesToShow: 1.75,
         },
       },
       {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 1.75,
+        },
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 1.25,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1.15,
+        },
+      },
+      {
         breakpoint: 992,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1.75,
           slidesToScroll: 1,
         },
       },
@@ -81,7 +99,7 @@ const GameScreenshots = ({post}) => {
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -109,17 +127,16 @@ const GameScreenshots = ({post}) => {
                 {...settings}
               >
                 {item.data.map((items, e) => (
-                    <div key={e}>
-                      <Image
-                        width={320}
-                        height={180}
-                        src={items.img}
-                        alt={items.alt || ''}
-                        className={styles.appImg}
-                        unoptimized
-                      />
-                    </div>
-
+                  <div key={e}>
+                    <Image
+                      width={320}
+                      height={180}
+                      src={items.img}
+                      alt={items.alt || ""}
+                      className={styles.appImg}
+                      unoptimized
+                    />
+                  </div>
                 ))}
               </Slider>
               <div className={styles.navigation}>

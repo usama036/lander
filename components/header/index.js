@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const Header = () => {
   const [show, setShow] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -76,21 +76,23 @@ const Header = () => {
                         type="search"
                         placeholder="Search for apps, games"
                         aria-label="Search"
-                        onChange={e =>setValue(e.target.value)}
+                        onChange={(e) => setValue(e.target.value)}
                       />
-                      <Link href={{
-                        pathname: '/search',
-                        query: {
-                          name: value,
-                        }
-                      }} >
+                      <Link
+                        href={{
+                          pathname: "/search",
+                          query: {
+                            name: value,
+                          },
+                        }}
+                      >
                         <Image
                           width={93}
                           height={93}
-                        src="/assets/search.svg"
-                        className={`${styles.searchMob}`}
-                        alt="search"
-                      />
+                          src="/assets/search.svg"
+                          className={`${styles.searchMob}`}
+                          alt="search"
+                        />
                       </Link>
                     </InputGroup>
                   </Form>
@@ -155,23 +157,26 @@ const Header = () => {
                     type="search"
                     placeholder="Search for apps, games"
                     aria-label="Search"
-                    onChange={e => {
+                    onChange={(e) => {
                       setValue(e.target.value);
-                    }}                  />
-                  <Link href={{
-                    pathname: '/search',
-                    query: {
-                      name: value,
-                    }
-                  }} >
-                  <Image
-                    src="/assets/search.svg"
-                    className={`${styles.search}`}
-                    alt="search"
-                    width={18}
-                    height={18}
+                    }}
                   />
-                  </Link>/
+                  <Link
+                    href={{
+                      pathname: "/search",
+                      query: {
+                        name: value,
+                      },
+                    }}
+                  >
+                    <Image
+                      src="/assets/search.svg"
+                      className={`${styles.search}`}
+                      alt="search"
+                      width={18}
+                      height={18}
+                    />
+                  </Link>
                 </InputGroup>
                 {/*<div>lang</div>*/}
               </Form>

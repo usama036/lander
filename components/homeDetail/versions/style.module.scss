@@ -34,7 +34,7 @@
           }
           .btn1 {
             height: 40px;
-            width: 320px;
+            width: 280px;
             font-size: 16px;
             font-weight: 500;
             line-height: 40px;
@@ -44,6 +44,9 @@
             color: white;
             background-color: #047857;
             border-radius: 52px;
+            @media (max-width: 1280px) {
+              width: 230px;
+            }
           }
         }
         .btn2Wrap {
@@ -59,7 +62,7 @@
             justify-content: center;
             align-items: center;
             height: 40px;
-            width: 320px;
+            width: 280px;
             font-size: 16px;
             font-weight: 500;
             line-height: 40px;
@@ -67,6 +70,9 @@
             background-color: white;
             border-radius: 52px;
             border: 1px solid #047857;
+            @media (max-width: 1280px) {
+              width: 230px;
+            }
           }
         }
       }
