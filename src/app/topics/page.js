@@ -38,8 +38,8 @@ const Topics = () => {
             <TopicsAll />
           </Col>
           <Col className={`col-sm-12 col-md-4 col-xxxl-4`}>
-            <SideCard post={games} type='Games' />
-            <SideCard post={apps} type='Apps' />
+            <SideCard post={games?.data} type='Games' />
+            <SideCard post={apps?.data} type='Apps' />
           </Col>
         </Row>
       </Container>
