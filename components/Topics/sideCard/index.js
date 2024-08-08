@@ -45,7 +45,7 @@ const SideCard = ({post,type}) => {
                   unoptimized
                 />
                 <div>
-                  <h5 className="mb-0">{game.title}</h5>
+                  <h1 className="mb-0">{game.title}</h1>
                   {/*<p className={`mb-0`}>{game.developer}</p>*/}
                   <p>
                     {game.rating} <i className="fas fa-star"></i>

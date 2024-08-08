@@ -28,4 +28,9 @@
   .button {
     width: 198px !important;
   }
+  :global {
+    h1 {
+      font-size: 0.75rem !important;
+    }
+  }
 }
