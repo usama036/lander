@@ -2,30 +2,31 @@
   .Container {
     padding: 0;
     background-color: white;
-    // border-top-left-radius: 50px;
     border: 1px solid #e5e7eb;
     margin-bottom: 3rem;
-    // border-top-left-radius: 50px;
-    // border-top-right-radius: 50px;
-    // border-bottom-right-radius: 50px;
-    // border-bottom-left-radius: 50px;
     border-radius: 20px;
 
     .row {
       margin: auto;
+
+      .colLeft,
+      .colRight {
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .noBorder {
+        border-bottom: none;
+      }
+
       .colLeft {
         border-top-left-radius: 50px;
-        border-bottom: 1px solid #e5e7eb;
         border-right: 1px solid #e5e7eb;
-        // border-bottom-right-radius: 20px;
-        // border-bottom-left-radius: 20px;
-        // border-radius: 50px;
-        padding: 0.75rem 2rem;
+
         img {
-          // height: 20px;
-          // width: 20px;
           margin-right: 10px;
         }
+
         p {
           margin-bottom: 0;
           font-weight: 700;
@@ -33,10 +34,8 @@
           line-height: 20px;
         }
       }
+
       .colRight {
-        padding: 0.75rem 2rem;
-        // border-radius: 50px;
-        border-bottom: 1px solid #e5e7eb;
         p {
           margin-bottom: 0;
           font-weight: 400;
@@ -45,17 +44,8 @@
         }
       }
     }
-    // :first-child {
-    //   border-top-left-radius: 50px;
-    // }
-    // :global {
-    //   .Container:last-child {
-    //     .colLeft {
-    //       border-bottom: 3px solid red;
-    //     }
-    //   }
-    // }
   }
+
   .textContainer {
     padding: 1.5rem 3rem;
     background-color: white;
@@ -68,6 +58,13 @@
     p {
       font-size: 16px;
       margin-bottom: 1rem;
+    }
+  }
+  :global {
+    h2 {
+      margin-top: 1rem !important;
+      margin-bottom: 1rem !important;
+      font-size: 1.25rem !important;
     }
   }
 }

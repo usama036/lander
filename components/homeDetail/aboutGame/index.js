@@ -2,31 +2,37 @@ import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Image from "next/image";
 
-const AboutGame = ({post}) => {
+const AboutGame = ({ post }) => {
   const AboutGameData = [
     {
-      title:"App Name",
+      title: "App Name",
       img: "/assets/app-name.svg",
       alt: "app-name",
-      detail:  post?.attributes?.title,
+      detail: post?.attributes?.title,
     },
     {
-      title:  'Latest Version',
+      title: "Latest Version",
       img: "/assets/2.svg",
       alt: "app-name",
-      detail: post?.attributes?.latestVersion || '2.0.0',
+      detail: post?.attributes?.latestVersion || "2.0.0",
     },
     {
       title: " Last Updated",
       img: "/assets/3.svg",
       alt: "app-name",
-      detail: new Date(post?.attributes?.createAt || '2024-06-20').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+      detail: new Date(
+        post?.attributes?.createAt || "2024-06-20"
+      ).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      }),
     },
     {
       title: "Publisher",
       img: "/assets/4.svg",
       alt: "app-name",
-      detail: post?.attributes?.publisher || '',
+      detail: post?.attributes?.publisher || "",
     },
     {
       title: "Requirements",
@@ -38,7 +44,7 @@ const AboutGame = ({post}) => {
       title: "Category",
       img: "/assets/6.svg",
       alt: "app-name",
-      detail:post?.attributes?.category?.data?.attributes?.name,
+      detail: post?.attributes?.category?.data?.attributes?.name,
     },
     {
       title: "Size",
@@ -68,7 +74,10 @@ const AboutGame = ({post}) => {
                 sm={12}
                 md={6}
                 lg={6}
-                className={`colLeft ${styles.colLeft}`}
+                // className={`colLeft ${styles.colLeft}`}
+                className={`colLeft ${styles.colLeft} ${
+                  index === AboutGameData.length - 1 ? styles.noBorder : ""
+                }`}
               >
                 <div className={styles.colWrap}>
                   <div className="d-flex align-items-center">
@@ -82,22 +91,29 @@ const AboutGame = ({post}) => {
                   </div>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={6} lg={6} className={styles.colRight}>
+              <Col
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                className={`${styles.colRight} ${
+                  index === AboutGameData.length - 1 ? styles.noBorder : ""
+                }`}
+                // className={styles.colRight}
+              >
                 <p>{data.detail}</p>{" "}
               </Col>
             </Row>
           ))}
         </Container>
         <Container className={styles.textContainer}>
-
-            <Row >
-              <Col className="col-sm-12">
-                <div dangerouslySetInnerHTML={{ __html: post?.attributes?.post }}></div>
-
-
-              </Col>
-            </Row>
-
+          <Row>
+            <Col className="col-sm-12">
+              <div
+                dangerouslySetInnerHTML={{ __html: post?.attributes?.post }}
+              ></div>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>
