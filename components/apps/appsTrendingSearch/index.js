@@ -146,10 +146,7 @@ const AppsTrending = ({apps}) => {
                 <Link
                   key={index}
                   href={{
-                    pathname: '/homedetails',
-                    query: {
-                      name: app.attributes.slug
-                    }
+                    pathname:`/${app?.attributes?.slug}`,
                   }}
                 >
                   <div >

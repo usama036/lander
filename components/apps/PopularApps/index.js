@@ -104,10 +104,7 @@ const PopularApps = ({pageData,type}) => {
             <Slider ref={sliderRef} {...settings} className={styles.slider}>
               {pageData.map((app, index) => (
                 <Link key={index} href={{
-                  pathname: '/homedetails',
-                  query: {
-                    name: app?.attributes?.slug
-                  }
+                  pathname:`/${app?.attributes?.slug}`,
                 }} >
                   <div  className={styles.appCard}>
                     <Image

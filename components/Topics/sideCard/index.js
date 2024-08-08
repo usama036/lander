@@ -32,10 +32,7 @@ const SideCard = ({post,type}) => {
               <Link
                 key={index}
                 href={{
-                  pathname: '/homedetails',
-                  query: {
-                    name:game.slug
-                  }
+                  pathname:`/${game?.slug}`,
                 }}
               >
               <li key={index} className="d-flex mb-3">
@@ -49,7 +46,7 @@ const SideCard = ({post,type}) => {
                 />
                 <div>
                   <h5 className="mb-0">{game.title}</h5>
-                  <p className={`mb-0`}>{game.developer}</p>
+                  {/*<p className={`mb-0`}>{game.developer}</p>*/}
                   <p>
                     {game.rating} <i className="fas fa-star"></i>
                   </p>

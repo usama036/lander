@@ -152,10 +152,7 @@ const GamesTrending = ({games}) => {
                 <div key={index} className={styles.appCard}>
                   <Link
                     href={{
-                      pathname: '/homedetails',
-                      query: {
-                        name: app.attributes.slug
-                      }
+                      pathname:`/${app?.attributes?.slug}`,
                     }}
                   >
                     <Image

@@ -17,10 +17,7 @@ const SearchComponent = ({ post }) => {
               >
                 <Link
                   href={{
-                    pathname: "/homedetails",
-                    query: {
-                      name: data?.attributes?.slug,
-                    },
+                    pathname:`/${data?.attributes?.slug}`,
                   }}
                 >
                   <div className={styles.card}>

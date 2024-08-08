@@ -346,10 +346,8 @@ const Categories = ({categories,type}) => {
                     <div className={styles.appsData}>
 
                       <Link href={{
-                        pathname: '/homedetails',
-                        query: {
-                          name: app.attributes.slug,
-                        }
+                        pathname:`/${app?.attributes?.slug}`,
+
                       }} >
                       <div className={styles.data}>
                         <Image
@@ -382,10 +380,8 @@ const Categories = ({categories,type}) => {
 
 
                       <Link href={{
-                        pathname: '/homedetails',
-                        query: {
-                          name: app.attributes.slug,
-                        }
+                        pathname:`/${app?.attributes?.slug}`,
+
                       }} >
                       <div className={styles.buttonWrap}>
                         <Button variant="none" className={styles.button}>

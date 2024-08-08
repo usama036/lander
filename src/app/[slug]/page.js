@@ -163,12 +163,13 @@ category{
   }
 `;
 export let metadata={}
-const HomeDetails = async ({ searchParams }) => {
-  const slug = searchParams.name;
+const HomeDetails = async (params) => {
+// console.log(params.params.slug);
+  const slug = params.params.slug
   const [postResponse, sideDataResponse] = await Promise.all([
     client.query({
       query: GET_POST_DETAILS,
-      variables: { slug },
+      variables: {slug },
     }),
     client.query({
       query: GET_SIDE_APPS_AND_GAMES,
@@ -176,12 +177,12 @@ const HomeDetails = async ({ searchParams }) => {
   ]);
 
   const post = postResponse.data.blogPosts.data[0];
-  const apps = sideDataResponse.data.sideApps.data;
-  const games = sideDataResponse.data.sideGames.data;
+  const apps = sideDataResponse?.data?.sideApps?.data;
+  const games = sideDataResponse?.data?.sideGames?.data;
   metadata= {
     title: `${post?.attributes?.title} download`,
     description: post?.attributes?.subtitle,
-    canonical: `${process.env.NEXT_PUBLIC_API_URL}/homedetails?name=${post?.attributes?.slug}`
+    alternates:{canonical: `${process.env.NEXT_PUBLIC_API_URL}/${post?.attributes?.slug}`}
   };
 
   return (
