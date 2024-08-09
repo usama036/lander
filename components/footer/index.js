@@ -8,20 +8,32 @@ const Footer = () => {
     {
       title: "SERVICE",
       items: [
-        "APK Install",
-        "APK Signature Verification",
-        "APK Download Service",
+        { label: "APK Install", url: "#" },
+        {
+          label: "APK Signature Verification",
+          url: "#",
+        },
+        { label: "APK Download Service", url: "#" },
       ],
     },
     {
-      title: "DEVELOPERS",
-      items: ["Developer Console", "Submit APK", "Traffic Monetization"],
+      title: "CONTACT US",
+      items: [
+        { label: "hello@reapplay.com", url: "mailto:hello@reapplay.com" },
+        { label: "1+(503)560-5598", url: "tel:+15035605598" },
+        { label: "346 NW Hunter Place Bend, Oregon 97703", url: "#" },
+      ],
     },
     {
       title: "COMPANY",
-      items: ["About Us", "Contact Us", "Business Cooperation"],
+      items: [
+        { label: "Contact Us", url: "#" },
+        { label: "Privacy Policy", url: "/privacy-policy" },
+        { label: "Terms of Services", url: "/terms-of-services" },
+      ],
     },
   ];
+
   return (
     <>
       <footer className={styles.footer}>
@@ -74,7 +86,9 @@ const Footer = () => {
                 <h6 className="mb-4">{section.title}</h6>
                 <ul className="list-unstyled">
                   {section.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
+                    <li key={idx}>
+                      <Link href={item.url}>{item.label}</Link>
+                    </li>
                   ))}
                 </ul>
               </Col>
