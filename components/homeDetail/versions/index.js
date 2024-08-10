@@ -6,7 +6,7 @@ import Image from "next/image";
 const Versions = ({post}) => {
   const explopreData = [
     {
-      title: "Versions of PUBG MOBILE",
+      title: `Versions of ${post?.attributes?.title}`,
       data: [
         {
           btn1: "Download for Android",

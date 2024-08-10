@@ -21,7 +21,8 @@ const Footer = () => {
       items: [
         { label: "hello@reapplay.com", url: "mailto:hello@reapplay.com" },
         { label: "1+(503)560-5598", url: "tel:+15035605598" },
-        { label: "346 NW Hunter Place Bend, Oregon 97703", url: "#" },
+        { label: "346 Hunter Place", url: "#" },
+        { label: "Bend, Oregon 97703", url: "#" }
       ],
     },
     {
@@ -99,7 +100,7 @@ const Footer = () => {
         <div className={`text-center ${styles.copyright}`}>
           <Container>
             <div className="mt-4">
-              Copyright © 2024 ModAPK All rights reserved. |{" "}
+              Copyright © 2024 Reapplay.com All rights reserved. |{" "}
               <a href="#">Privacy Policy</a> | <a href="#">Copyright Policy</a>{" "}
               | <a href="#">Terms</a>
             </div>

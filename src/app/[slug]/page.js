@@ -20,6 +20,7 @@ const GET_POST_DETAILS = gql`
         slug
         Applogo
         Image01
+        downloadLink
         Image03
         Image04
         Image05
@@ -131,6 +132,7 @@ category{
         subtitle
       publisher
       createdAt
+      downloadLink
         post
 downloads
 category{
@@ -190,7 +192,7 @@ const HomeDetails = async (params) => {
       <Row>
         <Col className="col-xs-12 col-sm-12 col-md-7 col-lg-7 home-Detail-Page-Left-Col">
           {post && <GameDetails post={post} />}
-          <div className="Advertisement-Two">Advertisement two</div>
+          <div className="Advertisement-Two">Advertisement </div>
           {post && <AboutGame post={post} />}
           {post && <Versions post={post} />}
           {post && <GameScreenshots post={post} />}

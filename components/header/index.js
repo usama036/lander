@@ -171,7 +171,7 @@ const Header = () => {
                     width={18}
                     height={18}
                   />
-                  </Link>/
+                  </Link>
                 </InputGroup>
                 {/*<div>lang</div>*/}
               </Form>
