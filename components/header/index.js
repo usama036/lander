@@ -12,10 +12,18 @@ import {
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-
+import { useRouter } from 'next/navigation'; // Use the correct import for useRouter
 const Header = () => {
   const [show, setShow] = useState(false);
   const [value, setValue] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    if (value.trim()) { // Ensure there is a search term
+      router.push(`/search?name=${value}`);
+    }
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -70,7 +78,7 @@ const Header = () => {
               </Button>
               {isOpen && (
                 <div className={`search-input-dropdown ${styles.MobformWrap}`}>
-                  <Form className="d-flex Mobform">
+                  <Form className="d-flex Mobform" onSubmit={handleSubmit}>
                     <InputGroup className={styles.mobInput}>
                       <Form.Control
                         type="search"
@@ -78,6 +86,9 @@ const Header = () => {
                         aria-label="Search"
                         onChange={e =>setValue(e.target.value)}
                       />
+                      <button hidden  type="submit">
+
+                      </button>
                       <Link href={{
                         pathname: '/search',
                         query: {
@@ -149,7 +160,7 @@ const Header = () => {
             </div>
             <div className={styles.formWrap}>
               {" "}
-              <Form className="d-flex">
+              <Form className="d-flex" onSubmit={handleSubmit}>
                 <InputGroup className={styles.InputGroup}>
                   <Form.Control
                     type="search"
@@ -157,7 +168,11 @@ const Header = () => {
                     aria-label="Search"
                     onChange={e => {
                       setValue(e.target.value);
-                    }}                  />
+                    }} />
+
+                    <button hidden  type="submit">
+
+                    </button>
                   <Link href={{
                     pathname: '/search',
                     query: {
@@ -171,7 +186,7 @@ const Header = () => {
                     width={18}
                     height={18}
                   />
-                  </Link>
+                    </Link>
                 </InputGroup>
                 {/*<div>lang</div>*/}
               </Form>

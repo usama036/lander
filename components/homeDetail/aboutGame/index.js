@@ -1,6 +1,8 @@
+'use client'
 import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Image from "next/image";
+import { useMediaQuery } from 'react-responsive';
 
 const AboutGame = ({ post }) => {
   const AboutGameData = [
@@ -59,7 +61,7 @@ const AboutGame = ({ post }) => {
       detail: "Google Playstore",
     },
   ];
-
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   return (
     <>
       <section className={styles.AboutGame}>
@@ -76,7 +78,7 @@ const AboutGame = ({ post }) => {
                 lg={6}
                 // className={`colLeft ${styles.colLeft}`}
                 className={`colLeft ${styles.colLeft} ${
-                  index === AboutGameData.length - 1 ? styles.noBorder : ""
+                  index ===  (isMobile ? AboutGameData.length + 1:AboutGameData.length - 1) ? styles.noBorder : ""
                 }`}
               >
                 <div className={styles.colWrap}>
