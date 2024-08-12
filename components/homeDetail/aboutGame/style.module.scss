@@ -1,11 +1,13 @@
 .AboutGame {
   .Container {
-    padding: 0;
+    padding: 0 !important;
     background-color: white;
     border: 1px solid #e5e7eb;
     margin-bottom: 3rem;
     border-radius: 20px;
-
+    @media (max-width: 768px) {
+      padding: 0 !important;
+    }
     .row {
       margin: auto;
 
@@ -22,6 +24,9 @@
       .colLeft {
         border-top-left-radius: 50px;
         border-right: 1px solid #e5e7eb;
+        @media (max-width: 768px) {
+          border-right: none;
+        }
 
         img {
           margin-right: 10px;
