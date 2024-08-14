@@ -115,7 +115,6 @@ const Apps = async () => {
     query: GET_SIDE_APPS_AND_GAMES,
   });
 
-  const apps = postResponse?.data?.sideApps?.data;
   const games = postResponse?.data?.sideGames?.data;
   return (
     <>

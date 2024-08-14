@@ -1,3 +1,4 @@
+'use client'
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -5,20 +6,54 @@ import {
   Container,
   Row,
   Col,
-  FormGroup,
-  FormLabel,
-  FormControl,
-  FormContext,
-  InputGroup,
-  Button,
-} from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import dynamic from "next/dynamic";
+  Button, Alert,
+} from 'react-bootstrap';
 
-// const Form = dynamic(() => import("react-bootstrap/Form"), { ssr: false });
-// const Button = dynamic(() => import("react-bootstrap/Button"), { ssr: false });
+import { useState } from 'react';
+
 
 const AboutUs = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertVariant, setAlertVariant] = useState('info'); // 'info', 'success', 'danger'
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newRecord={data:{
+        email,
+        name,
+        message,
+      }}
+
+    try {
+      const response = await fetch('https://coral-app-67amy.ondigitalocean.app/api/contact-uses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newRecord),
+      });
+      // Reset form
+      if (response.status === 200) {
+
+        setAlertMessage('Form submitted successfully!');
+        setEmail('')
+        setName('')
+        setMessage('')
+        setAlertVariant('success');
+      } else {
+        setAlertMessage('Error submitting form. Please try again.');
+        setAlertVariant('danger');
+      }
+    } catch (error) {
+      setAlertMessage( 'Error submitting form. Please try again.');
+      setAlertVariant('danger');
+    }
+  };
+
   return (
     <>
       <section className={styles.AboutUs}>
@@ -67,38 +102,49 @@ const AboutUs = () => {
               </div>
             </Col>
             <Col xs={12} s={12} md={6} className={`col-sm-12 col-md-6 `}>
-              <div class="contact-form">
-                <form>
+              <div className="contact-form">
+                <form onSubmit={handleSubmit}>
+                  {alertMessage && (
+                    <Alert variant={alertVariant} onClose={() => setAlertMessage('')} dismissible>
+                      {alertMessage}
+                    </Alert>
+                  )}
                   <div className="formWrap">
-                    <div class="form-group">
-                      <label for="name">Your Name*</label>
+                    <div className="form-group">
+                      <label form="name">Your Name*</label>
                       <input
                         type="text"
                         id="name"
+                        value={name}
                         placeholder="Ex. Saul Ramirez"
                         required
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
-                    <div class="form-group">
-                      <label for="email">Email Address*</label>
+                    <div className="form-group">
+                      <label form="email">Email Address*</label>
                       <input
                         type="email"
                         id="email"
+                        value={email}
                         placeholder="example@example.com"
                         required
+                        onChange={(e) => setEmail(e.target.value)}
                       />
+
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="message">Your Message*</label>
+                  <div className="form-group">
+                    <label form="message">Your Message*</label>
                     <textarea
                       id="message"
+                      value={message}
                       placeholder="Your Message"
-                      required
+                      onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
                   </div>
                   <div className="btnWrap">
-                    <Button variant="none" type="submit" class="submit-btn">
+                    <Button variant="none" type="submit" className="submit-btn">
                       Send Message
                     </Button>
                   </div>
