@@ -129,29 +129,34 @@ const Apps = async () => {
         </div>
         <Row>
           <Col className={`col-sm-12 col-md-8 col-xxxl-8 aboutUsData`}>
-            <h3>About Us</h3>
+            <h3>Our Story</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh.
+              Welcome to Reapplay.com! Our journey began with a lifelong
+              entrepreneur who turned a passion for technology into a thriving
+              platform. Inspired by the mantra, "Do what you love," we set out
+              to create a space where technology enthusiasts can explore the
+              latest and greatest in mobile apps and games. Here, we celebrate
+              innovation and creativity, bringing you closer to the tech that
+              shapes our world.
             </p>
-            <h3>Our Vision</h3>
+            <h3>What We Offer</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh.
+              Our insightful reviews highlight the unique technology behind each
+              app and game. We believe that every piece of software has a story
+              to tell, and we're here to uncover it. Our reviews are crafted
+              with care, offering you a deep dive into features, user
+              experiences, and the magic that makes each app stand out. Plus,
+              stay informed with download stats and developer insights, giving
+              you our comprehensive insight.
             </p>
-            <h3>Our Mission</h3>
+            <h3>Join Our Community</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur. Etiam vitae in ut faucibus
-              orci in sit purus sapien. Velit nunc interdum arcu in.
-              Pellentesque nibh tristique a sollicitudin aliquet libero nec
-              tortor. Dolor sed sit risus facilisis pellentesque nibh. Velit
-              nunc interdum arcu in. Pellentesque nibh tristique a sollicitudin
-              aliquet libero nec tortor. Dolor sed sit risus facilisis
-              pellentesque nibh.
+              We invite you to be part of our vibrant community of tech lovers.
+              Whether you're a casual gamer or a tech aficionado, there's
+              something here for everyone. With free download links at your
+              fingertips, you can easily explore new worlds and experiences.
+              Join us on this exciting adventure, and let's discover the future
+              of mobile technology together!
             </p>
           </Col>
           <Col className={`col-sm-12 col-md-4 col-xxxl-4 AboutSideCard`}>

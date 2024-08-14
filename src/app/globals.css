@@ -199,6 +199,17 @@ a {
   margin-bottom: 2rem;
 }
 
+.alert-success {
+  color: #378B4F !important;
+  padding-left: 0 !important;
+}
+
+
+.alert-danger {
+  color: red !important;
+  padding-left: 0 !important;
+}
+
 @media (min-width: 1280px) {
   .home-Detail-Page-Left-Col {
     max-width: 728px !important;
