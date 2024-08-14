@@ -62,8 +62,7 @@ const AboutUs = () => {
             <Col xs={12} s={12} md={6} className={`col-sm-12 col-md-6`}>
               <h1>CONTACT US</h1>
               <p>
-                Let’s make AI the cornerstone of your sustainable <br />{" "}
-                journey. Reach out for a free AIdriven consultation.
+                We’d love to hear from you! Whether you have questions, feedback,<br />{" "} or just want to share your thoughts, feel free to reach out!
               </p>
               <div>
                 <div className={styles.contactUs}>

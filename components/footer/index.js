@@ -2,25 +2,77 @@ import { Row, Col, Container } from "react-bootstrap";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 
 const Footer = () => {
   const footerData = [
     {
       title: "SERVICE",
       items: [
-        { label: "APK Install", url: "#" },
         {
-          label: "APK Signature Verification",
-          url: "#",
+          label: (
+            <>
+              <span className={`mx-6 ${styles.text}`}>
+                {" "}
+                <Image
+                  src="/assets/apps-logo.svg"
+                  className={`${styles.linkLogo}`}
+                  alt="apps-logo"
+                  width={24}
+                  height={24}
+                />
+              </span>
+              Apps
+            </>
+          ),
+          url: "/apps",
         },
-        { label: "APK Download Service", url: "#" },
+        {
+          label: (
+            <>
+              <span className={`mx-6 ${styles.text}`}>
+                {" "}
+                <Image
+                  src="/assets/gameboy.svg"
+                  className={`${styles.linkLogo}`}
+                  alt="gameboy"
+                  width={24}
+                  height={24}
+                />
+              </span>
+              Games
+            </>
+          ),
+          url: "/games",
+        },
+        {
+          label: (
+            <>
+              <span className={`mx-6 ${styles.text}`}>
+                {" "}
+                <Image
+                  src="/assets/book-saved.svg"
+                  className={`${styles.linkLogo}`}
+                  alt="book"
+                  width={24}
+                  height={24}
+                />
+              </span>
+              Topics
+            </>
+          ),
+          url: "/topics",
+        },
       ],
     },
     {
       title: "CONTACT US",
       items: [
         { label: "hello@reapplay.com", url: "mailto:hello@reapplay.com" },
-        { label: "1+(503)560-5598", url: "tel:+15035605598" },
+        {
+          label: "1+(503)560-5598",
+          url: "tel:+15035605598",
+        },
         { label: "346 Hunter Place", url: "#" },
         { label: "Bend, Oregon 97703", url: "#" },
       ],
@@ -29,6 +81,10 @@ const Footer = () => {
       title: "COMPANY",
       items: [
         { label: "About Us", url: "/about-us" },
+        {
+          label: "Contact Us",
+          url: "/about-us",
+        },
         { label: "Privacy Policy", url: "/privacy-policy" },
         { label: "Terms of Services", url: "/terms-of-services" },
       ],
