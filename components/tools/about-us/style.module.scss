@@ -1,0 +1,121 @@
+.AboutUs {
+  padding: 3rem;
+  @media (max-width: 991px) {
+    padding: 0.5rem;
+  }
+  h1 {
+    font-size: 44px;
+    line-height: 48px;
+    font-weight: 700;
+    @media (max-width: 991px) {
+      font-size: 28px;
+      line-height: 30px;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #4b5563;
+    margin-bottom: 3rem;
+    @media (max-width: 991px) {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 1rem;
+    }
+  }
+  .contactUs {
+    margin-bottom: 1rem;
+    a {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 27px;
+      @media (max-width: 991px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+  img {
+    margin-right: 1rem;
+    @media (max-width: 991px) {
+      margin-right: 0.5rem;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  :global {
+    .contact-form {
+      padding: 20px;
+      width: 100%;
+      @media (max-width: 991px) {
+        padding: 0 !important;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .formWrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      @media (max-width: 991px) {
+        display: block;
+        gap: 0;
+        justify-content: baseline;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 400;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #79a370;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #588c55;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    .btnWrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btnWrap .submit-btn {
+      width: 100%;
+      padding: 10px !important;
+      border: none;
+      background-color: #588c55 !important;
+      color: #fff !important;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background-color: #476b43;
+    }
+  }
+}

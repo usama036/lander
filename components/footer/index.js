@@ -22,13 +22,13 @@ const Footer = () => {
         { label: "hello@reapplay.com", url: "mailto:hello@reapplay.com" },
         { label: "1+(503)560-5598", url: "tel:+15035605598" },
         { label: "346 Hunter Place", url: "#" },
-        { label: "Bend, Oregon 97703", url: "#" }
+        { label: "Bend, Oregon 97703", url: "#" },
       ],
     },
     {
       title: "COMPANY",
       items: [
-        { label: "Contact Us", url: "#" },
+        { label: "About Us", url: "/about-us" },
         { label: "Privacy Policy", url: "/privacy-policy" },
         { label: "Terms of Services", url: "/terms-of-services" },
       ],
