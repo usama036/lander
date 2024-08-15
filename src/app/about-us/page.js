@@ -160,7 +160,7 @@ const Apps = async () => {
             </p>
           </Col>
           <Col className={`col-sm-12 col-md-4 col-xxxl-4 AboutSideCard`}>
-            <SideCard post={games} type="Games" />
+            <SideCard post={games} />
           </Col>
         </Row>
         <AboutUs />

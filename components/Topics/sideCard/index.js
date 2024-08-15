@@ -19,8 +19,12 @@ const SideCard = ({post,type}) => {
 
   return (
     <>
-      <section className={styles.SideCard}>
-        <div className="similar-games">
+    <section
+      className={styles.SideCard}
+      style={type === 'Games' ? { height: '364px', marginTop:48 } : {} && type=== 'Apps' ?{  marginTop:48 }:{} }
+    >
+      {/* Your content here */}
+    <div className="similar-games">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h3>Popular {type} </h3>
             <Link href={`/${type?.toLowerCase()}` }>
