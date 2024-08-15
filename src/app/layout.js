@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
+      <link rel="icon" href="/assets/favicon.svg"/>
       <link
         href="https://fonts.googleapis.com/css2?family=Eudoxus+Sans:wght@400;700&display=swap"
         rel="stylesheet"
