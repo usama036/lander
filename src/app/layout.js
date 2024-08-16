@@ -5,8 +5,8 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../public/styles/bootstrap-variables.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +20,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <head>
+      <GoogleTagManager gtmId="GTM-KFRMW246" />
+
       <link rel="icon" href="/assets/favicon.svg"/>
       <link
         href="https://fonts.googleapis.com/css2?family=Eudoxus+Sans:wght@400;700&display=swap"
@@ -28,6 +30,7 @@ export default function RootLayout({ children }) {
     </head>
     <body className={inter.className}>
     <Header />
+
     <main>{children}</main>
     <Footer />
     </body>

@@ -184,7 +184,7 @@ const HomeDetails = async (params) => {
   metadata= {
     title: `${post?.attributes?.title} download`,
     description: post?.attributes?.subtitle,
-    alternates:{canonical: `${process.env.NEXT_PUBLIC_API_URL}/${post?.attributes?.slug}`}
+    alternates:{canonical: `https://reapplay.com/${post?.attributes?.slug}`}
   };
 
   return (
