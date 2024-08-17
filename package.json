@@ -19,6 +19,7 @@
     "react": "^18",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18",
+    "react-gtm-module": "^2.0.11",
     "react-rating-stars-component": "^2.2.0",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.23.1",
