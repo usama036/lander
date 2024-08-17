@@ -1,6 +1,16 @@
-import ModeApkBanner from "../../components/home/modapkbanner";
-import Explore from "../../components/home/explore";
-import TopCharts from "../../components/home/topCharts";
+import dynamic from 'next/dynamic'
+
+const ModeApkBanner = dynamic(() => import('../../components/home/modapkbanner'), {
+  loading: () => <p></p>,
+})
+const Explore = dynamic(() => import('../../components/home/explore'), {
+  loading: () => <p></p>,
+})
+
+const TopCharts = dynamic(() => import('../../components/home/topCharts'), {
+  loading: () => <p></p>,
+})
+
 import { gql } from '@apollo/client';
 import client from '../../apollo-client';
 const GET_PAGE_APP_DATA = gql`

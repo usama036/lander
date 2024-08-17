@@ -1,4 +1,5 @@
 // app/home-details/page.js
+import dynamic from "next/dynamic";
 
 import { gql } from '@apollo/client';
 import client from '../../../apollo-client'; // Adjust the path as necessary
@@ -7,7 +8,9 @@ import GameDetails from "../../../components/homeDetail/gameDetails";
 import AboutGame from "../../../components/homeDetail/aboutGame";
 import Versions from "../../../components/homeDetail/versions";
 import GameScreenshots from "../../../components/homeDetail/gamescreenshots";
-import SideCard from "../../../components/Topics/sideCard";
+const SideCard = dynamic(() => import('../../../components/Topics/sideCard'), {
+  loading: () => <p></p>,
+})
 
 const GET_POST_DETAILS = gql`
   query GetPostDetails($slug: String!) {
