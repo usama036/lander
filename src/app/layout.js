@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Welcome to Reapplay.com",
   description: "Download the latest APK files for your favorite apps and games",
-  alternates:{canonical: `${process.env.NEXT_PUBLIC_API_URL}`}
+  alternates:{canonical: `https://reapplay.com`}
 };
 
 export default function RootLayout({ children }) {
