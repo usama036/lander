@@ -12,15 +12,16 @@ import {
 import styles from "./style.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from 'next/navigation'; // Use the correct import for useRouter
+import { useRouter } from "next/navigation"; // Use the correct import for useRouter
 const Header = () => {
   const [show, setShow] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
-    if (value.trim()) { // Ensure there is a search term
+    if (value.trim()) {
+      // Ensure there is a search term
       router.push(`/search?name=${value}`);
     }
   };
@@ -84,24 +85,24 @@ const Header = () => {
                         type="search"
                         placeholder="Search for apps, games"
                         aria-label="Search"
-                        onChange={e =>setValue(e.target.value)}
+                        onChange={(e) => setValue(e.target.value)}
                       />
-                      <button hidden  type="submit">
-
-                      </button>
-                      <Link href={{
-                        pathname: '/search',
-                        query: {
-                          name: value,
-                        }
-                      }} >
+                      <button hidden type="submit"></button>
+                      <Link
+                        href={{
+                          pathname: "/search",
+                          query: {
+                            name: value,
+                          },
+                        }}
+                      >
                         <Image
                           width={15}
                           height={15}
-                        src="/assets/search.svg"
-                        className={`${styles.searchMob}`}
-                        alt="search"
-                      />
+                          src="/assets/search.svg"
+                          className={`${styles.searchMob}`}
+                          alt="search"
+                        />
                       </Link>
                     </InputGroup>
                   </Form>
@@ -117,7 +118,11 @@ const Header = () => {
               <Nav
                 className={`d-flex justify-content-start align-items-center ${styles.nav}`}
               >
-                <Link className={`${styles.link}`} href="/apps">
+                <Link
+                  className={`${styles.link}`}
+                  href="/apps"
+                  onClick={handleClose}
+                >
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
                     <Image
@@ -130,7 +135,11 @@ const Header = () => {
                   </span>
                   Apps
                 </Link>
-                <Link className={`${styles.link}`} href="/games">
+                <Link
+                  className={`${styles.link}`}
+                  href="/games"
+                  onClick={handleClose}
+                >
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
                     <Image
@@ -143,7 +152,11 @@ const Header = () => {
                   </span>
                   Games
                 </Link>
-                <Link className={`${styles.link}`} href="/topics">
+                <Link
+                  className={`${styles.link}`}
+                  href="/topics"
+                  onClick={handleClose}
+                >
                   <span className={`mx-6 ${styles.text}`}>
                     {" "}
                     <Image
@@ -166,27 +179,28 @@ const Header = () => {
                     type="search"
                     placeholder="Search for apps, games"
                     aria-label="Search"
-                    onChange={e => {
+                    onChange={(e) => {
                       setValue(e.target.value);
-                    }} />
-
-                    <button hidden  type="submit">
-
-                    </button>
-                  <Link href={{
-                    pathname: '/search',
-                    query: {
-                      name: value,
-                    }
-                  }} >
-                  <Image
-                    src="/assets/search.svg"
-                    className={`${styles.search}`}
-                    alt="search"
-                    width={18}
-                    height={18}
+                    }}
                   />
-                    </Link>
+
+                  <button hidden type="submit"></button>
+                  <Link
+                    href={{
+                      pathname: "/search",
+                      query: {
+                        name: value,
+                      },
+                    }}
+                  >
+                    <Image
+                      src="/assets/search.svg"
+                      className={`${styles.search}`}
+                      alt="search"
+                      width={18}
+                      height={18}
+                    />
+                  </Link>
                 </InputGroup>
                 {/*<div>lang</div>*/}
               </Form>
@@ -216,7 +230,11 @@ const Header = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="d-grid flex-grow-1">
-            <Link className={`mb-4 ${styles.link}`} href="/apps">
+            <Link
+              className={`mb-4 ${styles.link}`}
+              href="/apps"
+              onClick={handleClose}
+            >
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <Image
@@ -229,7 +247,11 @@ const Header = () => {
               </span>
               Apps
             </Link>
-            <Link className={`mb-4 ${styles.link}`} href="/games">
+            <Link
+              className={`mb-4 ${styles.link}`}
+              href="/games"
+              onClick={handleClose}
+            >
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <Image
@@ -242,7 +264,11 @@ const Header = () => {
               </span>
               Games
             </Link>
-            <Link className={`mb-4 ${styles.link}`} href="/topics">
+            <Link
+              className={`mb-4 ${styles.link}`}
+              href="/topics"
+              onClick={handleClose}
+            >
               <span className={`mx-6 ${styles.text}`}>
                 {" "}
                 <Image
