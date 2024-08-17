@@ -162,7 +162,7 @@ const Apps = async () => {
             </div>
           </Col>
           <Col className={`col-sm-12 col-md-4 col-xxxl-4 AboutSideCard`}>
-            <SideCard post={games} />
+            <SideCard post={games} type='Games'/>
           </Col>
         </Row>
         <AboutUs />

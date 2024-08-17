@@ -8,6 +8,8 @@ import GameDetails from "../../../components/homeDetail/gameDetails";
 import AboutGame from "../../../components/homeDetail/aboutGame";
 import Versions from "../../../components/homeDetail/versions";
 import GameScreenshots from "../../../components/homeDetail/gamescreenshots";
+import Adsense from '../../../components/adsense/ad'
+import Head from "next/head";
 const SideCard = dynamic(() => import('../../../components/Topics/sideCard'), {
   loading: () => <p></p>,
 })
@@ -167,7 +169,25 @@ category{
     }
   }
 `;
-export let metadata={}
+export async function generateMetadata({ params }) {
+  const slug = params.slug;
+
+  // Fetch data from the server
+  const [postResponse] = await Promise.all([
+    client.query({
+      query: GET_POST_DETAILS,
+      variables: { slug },
+    }),
+  ]);
+
+  const post = postResponse.data.blogPosts.data[0];
+
+  return {
+    title: `${post?.attributes?.title} download`,
+    description: post?.attributes?.subtitle,
+    alternates: { canonical: `https://reapplay.com/${post?.attributes?.slug}` },
+  };
+}
 const HomeDetails = async (params) => {
 // console.log(params.params.slug);
   const slug = params.params.slug
@@ -184,30 +204,32 @@ const HomeDetails = async (params) => {
   const post = postResponse.data.blogPosts.data[0];
   const apps = sideDataResponse?.data?.sideApps?.data;
   const games = sideDataResponse?.data?.sideGames?.data;
-  metadata= {
-    title: `${post?.attributes?.title} download`,
-    description: post?.attributes?.subtitle,
-    alternates:{canonical: `https://reapplay.com/${post?.attributes?.slug}`}
-  };
+
 
   return (
-    <Container className="TopicsMain">
-      <Row>
-        <Col className="col-xs-12 col-sm-12 col-md-7 col-lg-7 home-Detail-Page-Left-Col">
-          {post && <GameDetails post={post} />}
+      <>
+  <Container className="TopicsMain">
+    <Row>
+      <Col className="col-xs-12 col-sm-12 col-md-7 col-lg-7 home-Detail-Page-Left-Col">
+        {post && <GameDetails post={post} />}
           <div className="Advertisement-Two">Advertisement </div>
+          {/*<Adsense/>*/}
           {post && <AboutGame post={post} />}
           {post && <Versions post={post} />}
           {post && <GameScreenshots post={post} />}
         </Col>
         <Col className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <div className="Advertisement">Advertisement</div>
+          {/*<Adsense/>*/}
           <SideCard post={games} type='Games' />
           <SideCard post={apps} type='Apps' />
         </Col>
       </Row>
     </Container>
+      </>
+
   );
+
 };
 
 export default HomeDetails;
