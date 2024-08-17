@@ -19,7 +19,7 @@ const modapkData = [
 
 const slider = [
   {
-    img: "/assets/homeslider.svg",
+    img: "/assets/headerimage.png",
     alt: "img",
     sideImg: "/assets/icon-slider.svg",
     imgAlt: "img",
@@ -27,7 +27,7 @@ const slider = [
     btn: "Download",
   },
   {
-    img: "/assets/homeslider.svg",
+    img: "/assets/headerimage.png",
     alt: "img",
     sideImg: "/assets/icon-slider.svg",
     imgAlt: "img",
@@ -35,7 +35,7 @@ const slider = [
     btn: "Download",
   },
   {
-    img: "/assets/homeslider.svg",
+    img: "/assets/headerimage.png",
     alt: "img",
     sideImg: "/assets/icon-slider.svg",
     imgAlt: "img",
@@ -43,7 +43,7 @@ const slider = [
     btn: "Download",
   },
   {
-    img: "/assets/homeslider.svg",
+    img: "/assets/headerimage.png",
     alt: "img",
     sideImg: "/assets/icon-slider.svg",
     imgAlt: "img",
@@ -51,7 +51,7 @@ const slider = [
     btn: "Download",
   },
   {
-    img: "/assets/homeslider.svg",
+    img: "/assets/headerimage.png",
     alt: "img",
     sideImg: "/assets/icon-slider.svg",
     imgAlt: "img",
